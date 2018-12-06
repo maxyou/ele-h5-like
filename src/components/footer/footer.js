@@ -5,6 +5,13 @@ import styled from 'styled-components'
 const FlexBottom = styled.div`
     display: flex;
     justify-content: space-around;
+    align-items:center;
+    height:4rem;
+    background-color: #ccddee;
+    position: fixed;
+    left:0px;
+    right:0px;
+    bottom:0px;
 `
 
 export default () => {
