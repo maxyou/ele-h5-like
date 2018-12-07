@@ -3,11 +3,18 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Shop from 'businesses/shops/shop'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 const StyledDiv = styled.div`    
     width: 100%;
+    height: 230px;
+    background-color:#d47239;
+`
+const StyledDivSlide = styled.div`    
     height: 200px;
-    background-color:#147239;
+    background-color:#d4c299;
 `
 
 class Category extends React.Component {
@@ -39,11 +46,22 @@ class Category extends React.Component {
         if(this.state==null){
             return <StyledDiv>null</StyledDiv>
         }else{
-            // const v = Object.values(this.state) 
-            // console.log(v)            
+            const settings = {
+                dots: true,
+                ininite: true,
+                speed: 500,
+                slidesToShow:1,
+                slidesToScroll:1
+            }
             return (
                 <StyledDiv>
-                    data
+                    <Slider {...settings}>
+                        <StyledDivSlide>1</StyledDivSlide>
+                        <StyledDivSlide>2</StyledDivSlide>
+                        <StyledDivSlide>3</StyledDivSlide>
+                        <StyledDivSlide>4</StyledDivSlide>
+
+                    </Slider>
                     {/* {v.map(
                         (item)=>(<div key={item.id}>
                             <Shop {...item}/>
