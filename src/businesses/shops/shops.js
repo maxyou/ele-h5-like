@@ -42,7 +42,7 @@ class Shops extends React.Component {
             return <div>null</div>
         }else{
             const v = Object.values(this.state) 
-            console.log(v)            
+            // console.log(v)            
             return (
                 <div>
                     {v.map(
