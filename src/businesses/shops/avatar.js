@@ -9,7 +9,7 @@ const StyledImg = styled.img`
 `
 
 export default function Avatar({url}) {
-    console.log('/img/'+url)
+    // console.log('/img/'+url)
     // return (<StyledDiv style={{ backgroundImage: 'url(' + props.url + ')' }}></StyledDiv>)    
     return (<StyledImg src={'/img/'+url} alt="avatar"/>)
 }

@@ -4,23 +4,22 @@ import Avatar from 'businesses/shops/avatar'
 
 const StyledDiv = styled.div`
     background-color: #f267d4;
-    width: 100%;
-    margin: 2px;
-    /* overflow: hidden; */
+    width: 100vw;
+    margin-bottom: 2px;
+    overflow: hidden;
 `
 const StyledDivAvatar = styled.div`
     float: left;
-    width: 19%;
+    width: 18vw;
     height: 18vw;
-    margin: 0.5%;
+    margin:1vw;
     background-color: #671234;
     clear: left;
 `
 const StyledDivInfo = styled.div`
     float: left;
-    width: 79%;
-    height: 180px;
-    margin: 0.5%;
+    width: 80vw;
+    height: 30vw;
     background-color: #126734;
 `
 export default (props) => {
