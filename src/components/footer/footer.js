@@ -11,33 +11,38 @@ const FlexBottom = styled.div`
     justify-content: space-around;
     align-items:center;
     height:60px;
-    background-color: #ccddee;
+    /* background-color: #ccddee; */
     position: fixed;
     left:0px;
     right:0px;
     bottom:0px;
-    overflow: hidden;
+    /* overflow: hidden; */
+`
+const FlexButton = styled.div`
 
-    .selected{
-        background-color: #83c393;
-    }
+    width: 25%;
+    /* height: 100%; */
+    background-color: #63b383;
 
-    NavLink{
-    }
     a{
+        width: 100%;
+        height: 60px;
         text-decoration:none;
 
-        figure{
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-
-            img{
-                width:25px;
-                height:25px;
-            }
-        }
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        
     }
+    .selected{
+        background-color: #93d3a3;
+    }
+    img{
+        width:25px;
+        height:25px;
+    }
+
 `
 
 export default () => {
@@ -45,30 +50,30 @@ export default () => {
     return (
         <Fragment>
             <FlexBottom>
-                <NavLink to='/home' activeClassName="selected">
-                    <figure>
+                <FlexButton>
+                    <NavLink to='/home' activeClassName="selected">
                         <img src={iconHome} alt='' />
-                        <figcation>Home</figcation>
-                    </figure>
-                </NavLink>
-                <NavLink to='/find' activeClassName="selected">
-                    <figure>
+                        <div>Home</div>
+                    </NavLink>
+                </FlexButton>
+                <FlexButton>
+                    <NavLink to='/find' activeClassName="selected">
                         <img src={iconFind} alt='' />
-                        <figcation>Find</figcation>
-                    </figure>
-                </NavLink>
-                <NavLink to='/order' activeClassName="selected">
-                    <figure>
+                        <div>Find</div>
+                    </NavLink>
+                </FlexButton>
+                <FlexButton>
+                   <NavLink to='/order' activeClassName="selected">
                         <img src={iconOrder} alt='' />
-                        <figcation>Order</figcation>
-                    </figure>
-                </NavLink>
-                <NavLink to='/my' activeClassName="selected">
-                    <figure>
+                        <div>Order</div>
+                   </NavLink>
+                </FlexButton>
+                <FlexButton>
+                    <NavLink to='/my' activeClassName="selected">
                         <img src={iconMy} alt='' />
-                        <figcation>My</figcation>
-                    </figure>
-                </NavLink>                        
+                        <div>My</div>
+                    </NavLink>                        
+                </FlexButton>
             </FlexBottom>
         </Fragment>
     );
