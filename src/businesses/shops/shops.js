@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Shop from 'businesses/shops/shop'
 
-const StyledDiv = styled.div`    
-`
+// const StyledDiv = styled.div`    
+// `
 
 class Shops extends React.Component {
 
@@ -47,7 +47,8 @@ class Shops extends React.Component {
                 <div>
                     {v.map(
                         (item)=>(<div key={item.id}>
-                            <Shop {...item}/>                            
+                            <Shop {...item}/>
+                            <hr/>                          
                             </div>)
                     )}
                 </div>
