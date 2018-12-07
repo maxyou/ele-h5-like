@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react'
 import styled from 'styled-components'
+import Avatar from 'businesses/shops/avatar'
 
 const StyledDiv = styled.div`
     background-color: #f267d4;
@@ -24,9 +25,11 @@ const StyledDivInfo = styled.div`
 `
 export default (props) => {
 
+    console.log(props.image_path)
     return (
         <StyledDiv>
             <StyledDivAvatar>
+                <Avatar url={props.image_path}/>
             </StyledDivAvatar>
             <StyledDivInfo>
                 {props.id}<br/>
