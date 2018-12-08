@@ -6,17 +6,17 @@ const StyledDiv = styled.div`
     /* background-color: #f0f0f0; */
     width: 100vw;
     /* width:100%; */
-    height: 30vw;
-    border: 0px dotted green;
+    height: 20vw;
+    /* border: 1px dotted green; */
     margin-bottom: 2px;
-    padding:0px;
+    /* padding:10px; */
     /* margin: 0px; */
     overflow: hidden;
 `
 const StyledDivAvatar = styled.div`
     float: left;
-    width: 18vw;
-    height: 18vw;
+    width: 15vw;
+    height: 15vw;
     margin:1vw;
     /* background-color: #671234; */
     clear: left;
@@ -25,6 +25,7 @@ const StyledDivInfo = styled.div`
     float: left;
     width: 80vw;
     height: 30vw;
+    margin:1vw;
     /* background-color: #126734; */
 
     .line1{

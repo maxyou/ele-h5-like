@@ -9,9 +9,10 @@ import 'slick-carousel/slick/slick-theme.css'
 import SlideView from 'businesses/category/slideview'
 
 const StyledDiv = styled.div`    
-    width: 100%;
+    width: 100vw;
     height: 230px;
     background-color:#ccccff;
+    /* border: 1px dotted red; */
 `
 
 class Category extends React.Component {
