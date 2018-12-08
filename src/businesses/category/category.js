@@ -11,11 +11,7 @@ import SlideView from 'businesses/category/slideview'
 const StyledDiv = styled.div`    
     width: 100%;
     height: 230px;
-    background-color:#d47239;
-`
-const StyledDivSlide = styled.div`    
-    height: 200px;
-    background-color:#d4c299;
+    background-color:#ccccff;
 `
 
 class Category extends React.Component {
@@ -52,8 +48,7 @@ class Category extends React.Component {
     render() {
         if(this.state && this.state.category){
 
-
-            console.log(this.state.category)
+            // console.log(this.state.category)
 
             const settings = {
                 dots: true,
@@ -66,23 +61,10 @@ class Category extends React.Component {
                 <StyledDiv>
                     <Slider {...settings}>
                         {this.state.category.map((item, index)=>(
-
                             <SlideView key={index} slided={item}>
                             </SlideView>
                         ))}
-                        {/* <StyledDivSlide>
-                        </StyledDivSlide>
-                        <StyledDivSlide>2</StyledDivSlide>
-                        <StyledDivSlide>3</StyledDivSlide>
-                        <StyledDivSlide>4</StyledDivSlide> */}
-
                     </Slider>
-                    {/* {v.map(
-                        (item)=>(<div key={item.id}>
-                            <Shop {...item}/>
-                            <hr/>                          
-                            </div>)
-                    )} */}
                 </StyledDiv>
             )
         }else{
