@@ -12,7 +12,7 @@ class Shops extends React.Component {
     constructor(props){
         super(props)
 
-        this.state = null
+        // this.state = null
         
     }
 
@@ -38,9 +38,7 @@ class Shops extends React.Component {
     }
     
     render() {
-        if(this.state==null){
-            return <div>null</div>
-        }else{
+        if(this.state){
             const v = Object.values(this.state) 
             // console.log(v)            
             return (
@@ -53,6 +51,8 @@ class Shops extends React.Component {
                     )}
                 </div>
             )
+        }else{
+            return <div>no data</div>
         }
     }
 }
