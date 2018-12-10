@@ -11,6 +11,7 @@ import Home from 'pages/home'
 import Find from 'pages/find'
 import Order from 'pages/order'
 import My from 'pages/my'
+import Seles from 'businesses/sales/sales'
 
 const store = createStore(
   reducers,
@@ -33,6 +34,7 @@ class App extends Component {
                 <Route path="/find" component={Find} />
                 <Route path="/order" component={Order} />
                 <Route path="/my" component={My} />
+                <Route path="/seles" component={Seles} />
               </Switch>
             </Fragment>
           </Provider>

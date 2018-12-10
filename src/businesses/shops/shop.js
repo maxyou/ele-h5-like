@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react'
 import styled from 'styled-components'
 import Avatar from 'businesses/shops/avatar'
+import { Link} from 'react-router-dom'
 
 const StyledDiv = styled.div`
     /* background-color: #f0f0f0; */
@@ -77,26 +78,28 @@ export default (props) => {
 
     return (
         <StyledDiv>
-            <StyledDivAvatar>
-                <Avatar url={props.image_path}/>
-            </StyledDivAvatar>
-            <StyledDivInfo>
-                <div className="line1">
-                    <div className="line1-1">{props.name}</div>
-                    <div className="line1-2">{props.supports[0].name}</div>
-                </div>
-                <div className="line2">
-                    <div className="line2-1">{props.category}</div>
-                    <div className="line2-2">{props.supports[1].description}</div>
-                </div>
-                <div className="line3">
-                    <div className="line3-1">tel:{props.phone}</div>
-                    <div className="line3-2">{props.piecewise_agent_fee.tips}</div>
-                </div>
-                <div className="line4">
-                    {props.address}
-                </div>
-            </StyledDivInfo>
+            <Link to='/seles'>
+                <StyledDivAvatar>
+                    <Avatar url={props.image_path}/>
+                </StyledDivAvatar>
+                <StyledDivInfo>
+                    <div className="line1">
+                        <div className="line1-1">{props.name}</div>
+                        <div className="line1-2">{props.supports[0].name}</div>
+                    </div>
+                    <div className="line2">
+                        <div className="line2-1">{props.category}</div>
+                        <div className="line2-2">{props.supports[1].description}</div>
+                    </div>
+                    <div className="line3">
+                        <div className="line3-1">tel:{props.phone}</div>
+                        <div className="line3-2">{props.piecewise_agent_fee.tips}</div>
+                    </div>
+                    <div className="line4">
+                        {props.address}
+                    </div>
+                </StyledDivInfo>
+            </Link>
         </StyledDiv>
     )
   }
