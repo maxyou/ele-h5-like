@@ -76,9 +76,11 @@ const StyledDivInfo = styled.div`
 `
 export default (props) => {
 
+    console.log(props)
+
     return (
         <StyledDiv>
-            <Link to='/seles'>
+            <Link to={`/seles/${props.id}`}>
                 <StyledDivAvatar>
                     <Avatar url={props.image_path}/>
                 </StyledDivAvatar>

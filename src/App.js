@@ -34,7 +34,7 @@ class App extends Component {
                 <Route path="/find" component={Find} />
                 <Route path="/order" component={Order} />
                 <Route path="/my" component={My} />
-                <Route path="/seles" component={Seles} />
+                <Route path="/seles/:id" component={Seles} />
               </Switch>
             </Fragment>
           </Provider>
