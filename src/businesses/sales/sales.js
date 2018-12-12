@@ -3,35 +3,33 @@ import axios from 'axios'
 import styled from 'styled-components'
 import Food from 'businesses/sales/food'
 
-//
-//.attrs({
- //   current0: this.state.current==0?'#c0f0f0':'#f0c0f0',
-    //current1: this.state.current==1?'#c0f0f0':'#f0c0f0'
-//}
-//)
+const deactive = '#dddddd'
+const active = '#aaaaaa'
+
 const StyledButtons = styled.div`
-    /* background-color: #10f0f0; */
     width: 20%;
     float:left;
-    display: flex;
-    flex-direction:column;
 
+    div{
+        width:80%;
+        height: 30px;
+        margin:3px;
+        padding:3px;
+    }
+
+    .hot{
+        background-color: ${props=>props.current==0?active:deactive};
+    }
+    .discount{
+        background-color: ${props=>props.current==1?active:deactive};
+    }
 
 `
 const StyledButtonDiv = styled.div`
         width:90%;
         margin:3%;
         padding:3%;
-
-        &.b0{
-            /* background-color: #1cffff; */
-            background-color: ${props=>props.current==0?'#1cffff':'#1fccff'};
-        }
-        &.b1{
-            /* background-color: #ff1cff; */
-            background-color: ${props=>props.current==1?'#ccffff':'#1fccff'};
-        }
-
+        border: 2px dotted red;
 `
 const StyledFoods = styled.div`
     background-color: #f0f0c0;
@@ -49,7 +47,8 @@ class Seles extends React.Component {
         super(props)
 
         this.state = {current:0}
-        
+        this.hot = 'hot'
+        this.discount = 'discount'
     }
 
     httpUpdate(){
@@ -82,27 +81,36 @@ class Seles extends React.Component {
         this.httpUpdate()
     }
     
+    showList(id){
+        // console.log('show foods 1')
+        document.getElementById(id).scrollIntoView()
+    }
+
     render() {
         // console.log(this.state)
 
         return (<div>
 
-            <StyledButtons>
-                <StyledButtonDiv className="b0" {...this.state}>b0</StyledButtonDiv>
-                <StyledButtonDiv className="b1" {...this.state}>b1</StyledButtonDiv>
+            <StyledButtons {...this.state}>
+                <div className="hot" onClick={()=>this.showList(this.hot)}>Hot</div>
+                <div className="discount" onClick={()=>this.showList(this.discount)}>Discount</div>
             </StyledButtons>
 
-            <StyledFoods>                    
-                {
-                    this.state.foods0?this.state.foods0.map((item)=><div key={item.id}>
-                            <Food {...item.foods} />
-                        </div>):null
-                }
-                {
-                    this.state.foods1?this.state.foods1.map((item)=><div key={item.id}>
-                            <Food {...item.foods} />
-                        </div>):null
-                }
+            <StyledFoods>
+                <div id={this.hot}>
+                    {
+                        this.state.foods0?this.state.foods0.map((item)=><div key={item.id}>
+                                <Food {...item.foods} />
+                            </div>):null
+                    }
+                </div>
+                <div id={this.discount}>
+                    {
+                        this.state.foods1?this.state.foods1.map((item)=><div key={item.id}>
+                                <Food {...item.foods} />
+                            </div>):null
+                    }
+                </div>
             </StyledFoods>
 
 
