@@ -47,8 +47,14 @@ class Seles extends React.Component {
         super(props)
 
         this.state = {current:0}
-        this.hot = 'hot'
-        this.discount = 'discount'
+        
+        this.id_allfoods = 'allfoods'
+        this.id_hot = 'hot'
+        this.id_discount = 'discount'
+
+        this.allfoods = null
+        this.hotFoods = null
+        this.discountFoods = null
     }
 
     httpUpdate(){
@@ -79,6 +85,21 @@ class Seles extends React.Component {
 
     componentDidMount() {
         this.httpUpdate()
+
+        this.allfoods = document.getElementById(this.id_allfoods)
+        this.hotFoods = document.getElementById(this.id_hot)
+        this.discountFoods = document.getElementById(this.id_discount)
+
+        this.allfoods.onscroll = (e)=>{
+            console.log(this.allfoods.scrollTop)
+            console.log(this.discountFoods.offsetTop)
+            console.log(this.state.current)
+            if(this.allfoods.scrollTop > this.discountFoods.offsetTop){
+                this.setState({current:1})
+            }else{
+                this.setState({current:0})
+            }
+        }
     }
     
     showList(id){
@@ -92,19 +113,19 @@ class Seles extends React.Component {
         return (<div>
 
             <StyledButtons {...this.state}>
-                <div className="hot" onClick={()=>this.showList(this.hot)}>Hot</div>
-                <div className="discount" onClick={()=>this.showList(this.discount)}>Discount</div>
+                <div className="hot" onClick={()=>this.showList(this.id_hot)}>Hot</div>
+                <div className="discount" onClick={()=>this.showList(this.id_discount)}>Discount</div>
             </StyledButtons>
 
-            <StyledFoods>
-                <div id={this.hot}>
+            <StyledFoods id={this.id_allfoods}>
+                <div id={this.id_hot}>
                     {
                         this.state.foods0?this.state.foods0.map((item)=><div key={item.id}>
                                 <Food {...item.foods} />
                             </div>):null
                     }
                 </div>
-                <div id={this.discount}>
+                <div id={this.id_discount}>
                     {
                         this.state.foods1?this.state.foods1.map((item)=><div key={item.id}>
                                 <Food {...item.foods} />
