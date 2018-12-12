@@ -19,17 +19,16 @@ const StyledButtons = styled.div`
 
     .hot{
         background-color: ${props=>props.current==0?active:deactive};
+        display:flex;
+        justify-content:center;
+        align-items:center;
     }
     .discount{
         background-color: ${props=>props.current==1?active:deactive};
+        display:flex;
+        justify-content:center;
+        align-items:center;
     }
-
-`
-const StyledButtonDiv = styled.div`
-        width:90%;
-        margin:3%;
-        padding:3%;
-        border: 2px dotted red;
 `
 const StyledFoods = styled.div`
     background-color: #f0f0c0;
@@ -84,6 +83,7 @@ class Seles extends React.Component {
     }
 
     componentDidMount() {
+
         this.httpUpdate()
 
         this.allfoods = document.getElementById(this.id_allfoods)
@@ -91,9 +91,9 @@ class Seles extends React.Component {
         this.discountFoods = document.getElementById(this.id_discount)
 
         this.allfoods.onscroll = (e)=>{
-            console.log(this.allfoods.scrollTop)
-            console.log(this.discountFoods.offsetTop)
-            console.log(this.state.current)
+            // console.log(this.allfoods.scrollTop)
+            // console.log(this.discountFoods.offsetTop)
+            // console.log(this.state.current)
             if(this.allfoods.scrollTop > this.discountFoods.offsetTop){
                 this.setState({current:1})
             }else{
@@ -119,6 +119,7 @@ class Seles extends React.Component {
 
             <StyledFoods id={this.id_allfoods}>
                 <div id={this.id_hot}>
+                    <div>this is hot</div>
                     {
                         this.state.foods0?this.state.foods0.map((item)=><div key={item.id}>
                                 <Food {...item.foods} />
@@ -126,6 +127,7 @@ class Seles extends React.Component {
                     }
                 </div>
                 <div id={this.id_discount}>
+                    <div>this is discount</div>
                     {
                         this.state.foods1?this.state.foods1.map((item)=><div key={item.id}>
                                 <Food {...item.foods} />
