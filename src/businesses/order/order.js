@@ -62,6 +62,7 @@ class Order extends React.Component {
 
         this.pickHotSales = this.pickHotSales.bind(this)
         this.pickDiscounted = this.pickDiscounted.bind(this)
+        this.resizeAllFoodsHeight = this.resizeAllFoodsHeight.bind(this)
     }
 
     httpUpdate(){
@@ -91,6 +92,9 @@ class Order extends React.Component {
         return extFoods
     }
 
+    resizeAllFoodsHeight(){
+        this.allfoods.style.height = (document.documentElement.clientHeight - this.allfoods.offsetTop) + 'px'
+    }
     componentDidMount() {
 
         this.httpUpdate()
@@ -100,11 +104,21 @@ class Order extends React.Component {
         this.hotFoods = document.getElementById(this.id_hot)
         this.discountFoods = document.getElementById(this.id_discount)
 
+        // console.log(document.compatMode)
+        // console.log('body.clientHeight:'+document.documentElement.clientHeight)
+        // console.log('allfoods.offsetTop:'+this.allfoods.offsetTop)
+        // console.log('allfoods.style.height:'+(document.body.clientHeight - this.allfoods.offsetTop) + 'px')
+        this.allfoods.style.height = (document.documentElement.clientHeight - this.allfoods.offsetTop) + 'px'
+
+        window.onresize = ()=>{            
+            this.allfoods.style.height = (document.documentElement.clientHeight - this.allfoods.offsetTop) + 'px'
+        }
+
         this.allfoods.onscroll = (e)=>{
-            console.log('allfoods.scrollTop:'+this.allfoods.scrollTop)
-            console.log('allfoods.offsetTop:'+this.allfoods.offsetTop)
-            console.log('hotFoods.scrollTop:'+this.hotFoods.scrollTop)
-            console.log('hotFoods.offsetTop:'+this.hotFoods.offsetTop)
+            // console.log('allfoods.scrollTop:'+this.allfoods.scrollTop)
+            // console.log('allfoods.offsetTop:'+this.allfoods.offsetTop)
+            // console.log('hotFoods.scrollTop:'+this.hotFoods.scrollTop)
+            // console.log('hotFoods.offsetTop:'+this.hotFoods.offsetTop)
             // console.log(this.discountFoods.offsetTop)
             // console.log(this.state.current)
             if(
