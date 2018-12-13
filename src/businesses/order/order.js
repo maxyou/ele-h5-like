@@ -5,7 +5,9 @@ import Food from 'businesses/order/food'
 
 const deactive = '#dddddd'
 const active = '#aaaaaa'
+const StyledOrder = styled.div`
 
+`
 const StyledButtons = styled.div`
     width: 20%;
     float:left;
@@ -16,7 +18,6 @@ const StyledButtons = styled.div`
         margin:3px;
         padding:3px;
     }
-
     .hot{
         background-color: ${props=>props.current==0?active:deactive};
         display:flex;
@@ -47,6 +48,7 @@ class Order extends React.Component {
 
         this.state = {current:0}
         
+        this.id_buttons = 'buttons'
         this.id_allfoods = 'allfoods'
         this.id_hot = 'hot'
         this.id_discount = 'discount'
@@ -90,6 +92,7 @@ class Order extends React.Component {
 
         this.httpUpdate()
 
+        this.buttons = document.getElementById(this.id_buttons)
         this.allfoods = document.getElementById(this.id_allfoods)
         this.hotFoods = document.getElementById(this.id_hot)
         this.discountFoods = document.getElementById(this.id_discount)
@@ -98,7 +101,8 @@ class Order extends React.Component {
             // console.log(this.allfoods.scrollTop)
             // console.log(this.discountFoods.offsetTop)
             // console.log(this.state.current)
-            if(this.allfoods.scrollTop >= this.discountFoods.offsetTop){
+            if(this.allfoods.scrollTop >= 
+                (this.discountFoods.offsetTop - this.buttons.offsetTop)){
                 this.setState({current:1})
             }else{
                 this.setState({current:0})
@@ -133,9 +137,9 @@ class Order extends React.Component {
     render() {
         // console.log(this.state)
 
-        return (<div>
+        return (<StyledOrder>
 
-            <StyledButtons {...this.state}>
+            <StyledButtons  id={this.id_buttons} {...this.state}>
                 <div className="hot" onClick={()=>this.showList(this.id_hot)}>热卖</div>
                 <div className="discount" onClick={()=>this.showList(this.id_discount)}>打折</div>
             </StyledButtons>
@@ -160,7 +164,7 @@ class Order extends React.Component {
             </StyledFoods>
 
 
-        </div>)
+        </StyledOrder>)
 
 
     }
