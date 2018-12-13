@@ -61,18 +61,18 @@ class Seles extends React.Component {
             .then(res=>{
                 if(res.status===200){
                     console.log('axios 200')
-                    // console.log(res)
+                    // console.log(JSON.stringify(res.data))
 
                     this.setState({
-                        foods0:this.extFoods(res.data[0].foods),
-                        foods1:this.extFoods(res.data[1].foods)
+                        foods0:this.loopFoodsData(res.data[0].foods),
+                        foods1:this.loopFoodsData(res.data[1].foods)
                     })
                 }
                 // console.log(res)
             })
     }
 
-    extFoods(foods){
+    loopFoodsData(foods){ //to mock large list
         let extFoods = []
         for(let i=0;i<20;i++){
             extFoods[i] = {}
