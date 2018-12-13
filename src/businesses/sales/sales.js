@@ -54,6 +54,8 @@ class Seles extends React.Component {
         this.allfoods = null
         this.hotFoods = null
         this.discountFoods = null
+
+        this.pickCount = this.pickCount.bind(this)
     }
 
     httpUpdate(){
@@ -78,6 +80,7 @@ class Seles extends React.Component {
             extFoods[i] = {}
             extFoods[i].foods = foods[i%3]
             extFoods[i].id = i
+            extFoods[i].pickCount = 0
         }
         return extFoods
     }
@@ -107,6 +110,19 @@ class Seles extends React.Component {
         document.getElementById(id).scrollIntoView()
     }
 
+    pickCount(n, index){
+        console.log(n)
+        console.log(index)
+
+        var stateCopy = Object.assign({}, this.state)
+        console.log(stateCopy)
+        stateCopy.foods0[index].pickCount += n
+        if(stateCopy.foods0[index].pickCount < 0){
+            stateCopy.foods0[index].pickCount = 0
+        }
+        this.setState(stateCopy)
+    }
+
     render() {
         // console.log(this.state)
 
@@ -122,7 +138,7 @@ class Seles extends React.Component {
                     <div>this is hot</div>
                     {
                         this.state.foods0?this.state.foods0.map((item)=><div key={item.id}>
-                                <Food {...item.foods} />
+                                <Food {...item} onPick={this.pickCount}/>
                             </div>):null
                     }
                 </div>
@@ -130,7 +146,7 @@ class Seles extends React.Component {
                     <div>this is discount</div>
                     {
                         this.state.foods1?this.state.foods1.map((item)=><div key={item.id}>
-                                <Food {...item.foods} />
+                                <Food {...item} />
                             </div>):null
                     }
                 </div>
