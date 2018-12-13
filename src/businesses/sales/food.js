@@ -9,15 +9,14 @@ const StyledFood = styled.div`
     display: flex;
     align-items:stretch;
     margin-bottom:1px;
+`
 
-    Icon{
-        margin: 2px;
-        padding:2px;
-    }
-    div{
-        background-color: #c0d0c0;
-        flex: 1 0 auto;
-    }
+const StyledFoodInfo = styled.div`
+    background-color: #c0d0c0;
+    flex: 1 0 auto;
+
+
+
 `
 export default (props) => {
 
@@ -26,10 +25,9 @@ export default (props) => {
     return (
         <StyledFood>
             <Icon url={props.image_path}></Icon>
-            <div>
-
+            <StyledFoodInfo>
                 {props.name}
-            </div>
+            </StyledFoodInfo>
         </StyledFood>
     )
   }
