@@ -19,16 +19,19 @@ const StyledButtons = styled.div`
         padding:3px;
     }
     .hot{
-        background-color: ${props=>props.current==0?active:deactive};
+        /* background-color: ${props=>props.current==0?active:deactive}; */
+        background-color: #dddddd;
         display:flex;
         justify-content:center;
         align-items:center;
+        border: ${props=>props.current==0?'1px dotted red':'0px dotted red'};
     }
     .discount{
-        background-color: ${props=>props.current==1?active:deactive};
+        background-color: #dddddd;
         display:flex;
         justify-content:center;
         align-items:center;
+        border: ${props=>props.current==1?'1px dotted red':'0px dotted red'};
     }
 `
 const StyledFoods = styled.div`
@@ -98,11 +101,18 @@ class Order extends React.Component {
         this.discountFoods = document.getElementById(this.id_discount)
 
         this.allfoods.onscroll = (e)=>{
-            // console.log(this.allfoods.scrollTop)
+            console.log('allfoods.scrollTop:'+this.allfoods.scrollTop)
+            console.log('allfoods.offsetTop:'+this.allfoods.offsetTop)
+            console.log('hotFoods.scrollTop:'+this.hotFoods.scrollTop)
+            console.log('hotFoods.offsetTop:'+this.hotFoods.offsetTop)
             // console.log(this.discountFoods.offsetTop)
             // console.log(this.state.current)
-            if(this.allfoods.scrollTop >= 
-                (this.discountFoods.offsetTop - this.buttons.offsetTop)){
+            if(
+                // this.allfoods.scrollTop >= 
+                // (this.discountFoods.offsetTop - this.buttons.offsetTop)
+
+                this.allfoods.scrollTop >= this.hotFoods.offsetHeight
+                ){
                 this.setState({current:1})
             }else{
                 this.setState({current:0})
@@ -112,7 +122,12 @@ class Order extends React.Component {
     
     showList(id){
         // console.log('show foods 1')
-        document.getElementById(id).scrollIntoView()
+        // document.getElementById(id).scrollIntoView()
+        if(id==this.id_hot){
+            this.allfoods.scrollTop = 0
+        }else{
+            this.allfoods.scrollTop = this.hotFoods.offsetHeight
+        }
     }
 
     pickHotSales(n, index){
