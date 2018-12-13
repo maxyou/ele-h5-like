@@ -3,9 +3,9 @@ import styled from 'styled-components'
 
 
 const StyledImg = styled.img`
-    width: 60px;
-    height: 60px;
-    margin:3px;
+    width: 70px;
+    height: 70px;
+    margin:2px;
     padding:3px;
     /* border-radius: 25%; */
     /* background-color:blue; */
