@@ -55,7 +55,8 @@ class Seles extends React.Component {
         this.hotFoods = null
         this.discountFoods = null
 
-        this.pickCount = this.pickCount.bind(this)
+        this.pickHotSales = this.pickHotSales.bind(this)
+        this.pickDiscounted = this.pickDiscounted.bind(this)
     }
 
     httpUpdate(){
@@ -66,8 +67,8 @@ class Seles extends React.Component {
                     // console.log(JSON.stringify(res.data))
 
                     this.setState({
-                        foods0:this.loopFoodsData(res.data[0].foods),
-                        foods1:this.loopFoodsData(res.data[1].foods)
+                        hotsales:this.loopFoodsData(res.data[0].foods),
+                        discounted:this.loopFoodsData(res.data[1].foods)
                     })
                 }
                 // console.log(res)
@@ -110,18 +111,24 @@ class Seles extends React.Component {
         document.getElementById(id).scrollIntoView()
     }
 
-    pickCount(n, index){
-        console.log(n)
-        console.log(index)
-
+    pickHotSales(n, index){
         var stateCopy = Object.assign({}, this.state)
-        console.log(stateCopy)
-        stateCopy.foods0[index].pickCount += n
-        if(stateCopy.foods0[index].pickCount < 0){
-            stateCopy.foods0[index].pickCount = 0
+        stateCopy.hotsales[index].pickCount += n
+        if(stateCopy.hotsales[index].pickCount < 0){
+            stateCopy.hotsales[index].pickCount = 0
         }
         this.setState(stateCopy)
     }
+    
+    pickDiscounted(n, index){
+        var stateCopy = Object.assign({}, this.state)
+        stateCopy.discounted[index].pickCount += n
+        if(stateCopy.discounted[index].pickCount < 0){
+            stateCopy.discounted[index].pickCount = 0
+        }
+        this.setState(stateCopy)
+    }
+    
 
     render() {
         // console.log(this.state)
@@ -137,16 +144,16 @@ class Seles extends React.Component {
                 <div id={this.id_hot}>
                     <div>热卖区</div>
                     {
-                        this.state.foods0?this.state.foods0.map((item)=><div key={item.id}>
-                                <Food {...item} onPick={this.pickCount}/>
+                        this.state.hotsales?this.state.hotsales.map((item)=><div key={item.id}>
+                                <Food {...item} onPick={this.pickHotSales}/>
                             </div>):null
                     }
                 </div>
                 <div id={this.id_discount}>
                     <div>打折区</div>
                     {
-                        this.state.foods1?this.state.foods1.map((item)=><div key={item.id}>
-                                <Food {...item} />
+                        this.state.discounted?this.state.discounted.map((item)=><div key={item.id}>
+                                <Food {...item} onPick={this.pickDiscounted}/>
                             </div>):null
                     }
                 </div>

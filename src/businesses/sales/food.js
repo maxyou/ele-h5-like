@@ -41,9 +41,9 @@ const StyledFoodPicker = styled.div`
     background-color: #f0c040;
     width: 100px;
     height: 100%;
-    display: flex;
-    align-items:stretch;
-    margin-bottom:1px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
     .minus{
         width: 20px;
@@ -52,6 +52,9 @@ const StyledFoodPicker = styled.div`
     .plus{
         width: 20px;
         height: 20px;
+    }
+    div{
+        width:30px;
     }
 `
 export default (props) => {
@@ -70,7 +73,7 @@ export default (props) => {
             </StyledFoodInfo>
             <StyledFoodPicker>
                 <img className="minus" src={iconMinus} alt='' onClick={()=>props.onPick(-1, props.id)} />
-                {props.pickCount}
+                <div>{props.pickCount}</div>
                 <img className="plus" src={iconPlus} alt='' onClick={()=>props.onPick(1, props.id)} />
             </StyledFoodPicker>
         </StyledFood>
