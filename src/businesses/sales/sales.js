@@ -2,6 +2,7 @@ import React, {Fragment} from 'react'
 import styled from 'styled-components'
 import { Link} from 'react-router-dom'
 import Order from 'businesses/order/order'
+import ShopDetail from 'businesses/sales/shopdetail'
 
 const StyledDivHeader = styled.div`
 
@@ -16,7 +17,9 @@ export default (props) => {
 
     return (
         <div>
-            <StyledDivHeader></StyledDivHeader>
+            <StyledDivHeader>
+                <ShopDetail {...props}></ShopDetail>
+            </StyledDivHeader>
             <Order {...props}></Order>
         </div>
     )
