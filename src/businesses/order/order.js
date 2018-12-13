@@ -108,11 +108,9 @@ class Order extends React.Component {
         // console.log('body.clientHeight:'+document.documentElement.clientHeight)
         // console.log('allfoods.offsetTop:'+this.allfoods.offsetTop)
         // console.log('allfoods.style.height:'+(document.body.clientHeight - this.allfoods.offsetTop) + 'px')
-        this.allfoods.style.height = (document.documentElement.clientHeight - this.allfoods.offsetTop) + 'px'
-
-        window.onresize = ()=>{            
-            this.allfoods.style.height = (document.documentElement.clientHeight - this.allfoods.offsetTop) + 'px'
-        }
+        // this.allfoods.style.height = (document.documentElement.clientHeight - this.allfoods.offsetTop) + 'px'
+        this.resizeAllFoodsHeight()
+        window.onresize = this.resizeAllFoodsHeight
 
         this.allfoods.onscroll = (e)=>{
             // console.log('allfoods.scrollTop:'+this.allfoods.scrollTop)
