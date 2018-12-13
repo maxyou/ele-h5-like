@@ -62,7 +62,7 @@ export default (props) => {
         <StyledFood>
             <Icon url={props.foods.image_path}></Icon>
             <StyledFoodInfo>
-                <div className="name">黄焖鸡{props.foods.name}</div>
+                <div className="name">黄焖鸡-{props.id}</div>
                 <div className="tips">{props.foods.tips}</div>
                 <div className="price">￥20元起</div>
                 <div className="welcome">欢迎光临</div>

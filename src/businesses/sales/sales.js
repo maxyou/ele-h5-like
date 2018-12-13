@@ -97,7 +97,7 @@ class Seles extends React.Component {
             // console.log(this.allfoods.scrollTop)
             // console.log(this.discountFoods.offsetTop)
             // console.log(this.state.current)
-            if(this.allfoods.scrollTop > this.discountFoods.offsetTop){
+            if(this.allfoods.scrollTop >= this.discountFoods.offsetTop){
                 this.setState({current:1})
             }else{
                 this.setState({current:0})
@@ -129,13 +129,13 @@ class Seles extends React.Component {
         return (<div>
 
             <StyledButtons {...this.state}>
-                <div className="hot" onClick={()=>this.showList(this.id_hot)}>Hot</div>
-                <div className="discount" onClick={()=>this.showList(this.id_discount)}>Discount</div>
+                <div className="hot" onClick={()=>this.showList(this.id_hot)}>热卖</div>
+                <div className="discount" onClick={()=>this.showList(this.id_discount)}>打折</div>
             </StyledButtons>
 
             <StyledFoods id={this.id_allfoods}>
                 <div id={this.id_hot}>
-                    <div>this is hot</div>
+                    <div>热卖区</div>
                     {
                         this.state.foods0?this.state.foods0.map((item)=><div key={item.id}>
                                 <Food {...item} onPick={this.pickCount}/>
@@ -143,7 +143,7 @@ class Seles extends React.Component {
                     }
                 </div>
                 <div id={this.id_discount}>
-                    <div>this is discount</div>
+                    <div>打折区</div>
                     {
                         this.state.foods1?this.state.foods1.map((item)=><div key={item.id}>
                                 <Food {...item} />
