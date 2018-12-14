@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import Food from 'businesses/order/food'
+import {Map, List} from 'immutable'
 
 const deactive = '#dddddd'
 const active = '#aaaaaa'
@@ -49,7 +50,11 @@ class Order extends React.Component {
     constructor(props){
         super(props)
 
-        this.state = {current:0}
+        this.state = {data:Map({
+                            current:0,
+                            hotsales: List(),
+                            discounted: List()
+                        })}
         
         this.id_buttons = 'buttons'
         this.id_allfoods = 'allfoods'
@@ -72,16 +77,22 @@ class Order extends React.Component {
                     console.log('axios 200')
                     // console.log(JSON.stringify(res.data))
 
-                    this.setState({
-                        hotsales:this.loopFoodsData(res.data[0].foods),
-                        discounted:this.loopFoodsData(res.data[1].foods)
-                    })
+                    this.setState(
+                        ({data})=>({
+                            data:data.merge(
+                                Map({
+                                    hotsales:List(this.mockFoodsData(res.data[0].foods)),
+                                    discounted:List(this.mockFoodsData(res.data[1].foods))
+                                })
+                            )
+                        })
+                    )
                 }
                 // console.log(res)
             })
     }
 
-    loopFoodsData(foods){ //to mock large list
+    mockFoodsData(foods){ //to mock large list
         let extFoods = []
         for(let i=0;i<20;i++){
             extFoods[i] = {}
@@ -127,9 +138,18 @@ class Order extends React.Component {
 
                 this.allfoods.scrollTop >= this.hotFoods.offsetHeight
                 ){
-                this.setState({current:1})
+                this.setState(
+                    ({data})=>({
+                        data:data.merge({current:1})                    
+                    })
+                )
             }else{
-                this.setState({current:0})
+                this.setState(
+                    ({data})=>({
+                        data:data.merge({current:0})
+                    })
+                )
+
             }
         }
     }
@@ -145,30 +165,58 @@ class Order extends React.Component {
     }
 
     pickHotSales(n, index){
-        var stateCopy = Object.assign({}, this.state)
-        stateCopy.hotsales[index].pickCount += n
-        if(stateCopy.hotsales[index].pickCount < 0){
-            stateCopy.hotsales[index].pickCount = 0
-        }
-        this.setState(stateCopy)
+        // var stateCopy = Object.assign({}, this.state)
+        // stateCopy.hotsales[index].pickCount += n
+        // if(stateCopy.hotsales[index].pickCount < 0){
+        //     stateCopy.hotsales[index].pickCount = 0
+        // }
+        // this.setState(stateCopy)
+        console.log(n)
+        console.log(index)
+        this.setState(
+            ({data})=>({
+                // data:data.updateIn(['hotsales', index], v=>{
+                //         // v.pickCount += n
+                //         console.log(v)
+                //         let nv = Object.assign({}, v)
+                //         nv.pickCount += n
+                //         console.log(nv.pickCount)
+                //         return nv
+
+                // })
+                data:data.update('hotsales', v=>v.update(index, vv=>({
+                    ...vv, pickCount:(vv.pickCount+n)<0?0:vv.pickCount+n
+                }))
+                    // {
+                    //     v.update(index, vv=>{
+                    //         vv.pickCount += n
+                    //         return vv
+                    //     })
+                    //     return v
+                    // }
+                )
+            })
+        )
     }
     
     pickDiscounted(n, index){
-        var stateCopy = Object.assign({}, this.state)
-        stateCopy.discounted[index].pickCount += n
-        if(stateCopy.discounted[index].pickCount < 0){
-            stateCopy.discounted[index].pickCount = 0
-        }
-        this.setState(stateCopy)
+        this.setState(
+            ({data})=>({
+                data:data.update('discounted', v=>v.update(index, vv=>({
+                    ...vv, pickCount:(vv.pickCount+n)<0?0:vv.pickCount+n
+                    }))
+                )
+            })
+        )
     }
     
 
     render() {
-        // console.log(this.state)
+        // console.log(this.state.data)
 
         return (<StyledOrder>
 
-            <StyledButtons  id={this.id_buttons} {...this.state}>
+            <StyledButtons  id={this.id_buttons} {...this.state.data.toJS()}>
                 <div className="hot" onClick={()=>this.showList(this.id_hot)}>热卖</div>
                 <div className="discount" onClick={()=>this.showList(this.id_discount)}>打折</div>
             </StyledButtons>
@@ -177,7 +225,7 @@ class Order extends React.Component {
                 <div id={this.id_hot}>
                     <div>热卖区</div>
                     {
-                        this.state.hotsales?this.state.hotsales.map((item)=><div key={item.id}>
+                        this.state.data.get('hotsales')?this.state.data.get('hotsales').map((item)=><div key={item.id}>
                                 <Food {...item} onPick={this.pickHotSales}/>
                             </div>):null
                     }
@@ -185,7 +233,7 @@ class Order extends React.Component {
                 <div id={this.id_discount}>
                     <div>打折区</div>
                     {
-                        this.state.discounted?this.state.discounted.map((item)=><div key={item.id}>
+                        this.state.data.get('discounted')?this.state.data.get('discounted').map((item)=><div key={item.id}>
                                 <Food {...item} onPick={this.pickDiscounted}/>
                             </div>):null
                     }
