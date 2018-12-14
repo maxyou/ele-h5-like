@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 import axios from 'axios'
 const StyledShopDetail = styled.div`
     display:flex;
@@ -23,7 +22,7 @@ class ShopDetail extends React.Component {
                 if(res.status===200){
                     console.log('axios 200 shop detail')
                     // console.log(JSON.stringify(res))
-                    console.log(res)
+                    // console.log(res)
 
                     this.setState({...res.data})
                 }
@@ -36,7 +35,8 @@ class ShopDetail extends React.Component {
     }
     
     render() {
-        console.log(this.state)
+
+        // console.log(this.state)
         if(this.state){
             return (
                 <StyledShopDetail>detail

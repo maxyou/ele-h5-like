@@ -4,7 +4,6 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import reducers from './reducers';
 import { Switch, HashRouter, Route, Redirect } from 'react-router-dom'
-import styled from 'styled-components'
 import thunkMiddleware from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import Home from 'pages/home'

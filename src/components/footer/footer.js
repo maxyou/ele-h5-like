@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react';
-import { Switch, Route, NavLink, Link, Redirect } from 'react-router-dom'
+import React, { Fragment } from 'react';
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import iconHome from 'components/footer/iconfont/home.svg'
 import iconFind from 'components/footer/iconfont/find.svg'
