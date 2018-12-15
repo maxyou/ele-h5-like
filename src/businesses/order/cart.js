@@ -41,7 +41,9 @@ class Cart extends React.Component {
     render() {
         return <StyledDiv>
                 <img className="cart" src={cartSvg} alt=''  />
-                <div className="price">1</div>
+                <div className="price">
+                    <img className="cart" src={require('resources/img/coffee.jpg')} alt=''  />
+                </div>
                 <div className="place">2</div>
             </StyledDiv>
     }
