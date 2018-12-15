@@ -16,6 +16,9 @@ const StyledDiv = styled.div`
         width: 30px;
         height: 30px;
     }
+    .num{
+        background-color:#11c97f;
+    }
     .price{
         background-color:#1199ff;
     }
@@ -30,7 +33,7 @@ class Cart extends React.Component {
     constructor(props){
         super(props)
 
-        // this.state = null
+        // this.state.num = 0
         
     }
 
@@ -39,12 +42,29 @@ class Cart extends React.Component {
     }
     
     render() {
+        console.log(this.props)
+
+        let num = 0
+        this.props.hotsales.map((item)=>{
+            if(item.pickCount){
+                num+=item.pickCount
+            }
+        })
+        this.props.discounted.map((item)=>{
+            if(item.pickCount){
+                num+=item.pickCount
+            }
+        })
+
         return <StyledDiv>
                 <img className="cart" src={cartSvg} alt=''  />
-                <div className="price">
-                    <img className="cart" src={require('resources/img/coffee.jpg')} alt=''  />
+                <div className="num">
+                    total num:{num}
                 </div>
-                <div className="place">2</div>
+                <div className="price">
+                    total price
+                </div>
+                <div className="place">goto place</div>
             </StyledDiv>
     }
 }

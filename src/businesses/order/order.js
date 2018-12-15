@@ -141,11 +141,6 @@ class Order extends React.Component {
         this.hotFoods = document.getElementById(this.id_hot)
         this.discountFoods = document.getElementById(this.id_discount)
 
-        // console.log(document.compatMode)
-        // console.log('body.clientHeight:'+document.documentElement.clientHeight)
-        // console.log('allfoods.offsetTop:'+this.allfoods.offsetTop)
-        // console.log('allfoods.style.height:'+(document.body.clientHeight - this.allfoods.offsetTop) + 'px')
-        // this.allfoods.style.height = (document.documentElement.clientHeight - this.allfoods.offsetTop) + 'px'
         this.resizeAllFoodsHeight()
         window.onresize = this.resizeAllFoodsHeight
 
@@ -159,8 +154,6 @@ class Order extends React.Component {
             // console.log(this.discountFoods.offsetTop)
             // console.log(this.state.current)
             if(
-                // this.allfoods.scrollTop >= 
-                // (this.discountFoods.offsetTop - this.buttons.offsetTop)
 
                 this.allfoods.scrollTop >= this.hotFoods.offsetHeight
                 ){
@@ -235,7 +228,7 @@ class Order extends React.Component {
             </StyledFoods>
 
             <StyledOrderCart>
-                <Cart></Cart>                
+                <Cart {...this.state.data.toJS()}></Cart>                
             </StyledOrderCart>
         </StyledOrder>)
 
