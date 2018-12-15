@@ -11,14 +11,14 @@ var http = axios.create()
 var mock = new MockAdapter(http)
 mock.onGet('/shopping/v2/menu').reply(200,{
     hotsales:[
-        {id:1, name:'JS', imgurl:'resources/img/coffee.jpg'},
-        {id:2, name:'Java', imgurl:'resources/img/chicken.jpg'},
-        {id:3, name:'Go', imgurl:'resources/img/mdl.jpg'},
+        {id:1, name:'JS', imgindex:'coffee'},
+        {id:2, name:'Java', imgindex:'chicken'},
+        {id:3, name:'Go', imgindex:'mdl'},
     ],
     discounted:[
-        {id:1, name:'python', imgurl:'resources/img/ricenoodle.jpg'},
-        {id:2, name:'c', imgurl:'resources/img/coffee.jpg'},
-        {id:3, name:'c++', imgurl:'resources/img/chicken.jpg'},
+        {id:1, name:'python', imgindex:'ricenoodle'},
+        {id:2, name:'c', imgindex:'coffee'},
+        {id:3, name:'c++', imgindex:'chicken'},
     ]
 
 })

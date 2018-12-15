@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Icon from 'businesses/order/icon'
+import FoodPic from 'businesses/order/foodpic'
 import iconMinus from 'businesses/order/iconfont/minus-circle.svg'
 import iconPlus from 'businesses/order/iconfont/plus-circle.svg'
 
@@ -63,7 +63,7 @@ export default (props) => {
 
     return (
         <StyledFood>
-            <Icon url={props.imgurl}></Icon>
+            <FoodPic imgindex={props.imgindex}></FoodPic>
             <StyledFoodInfo>
                 <div className="name">黄焖鸡-{props.id}</div>
                 <div className="tips">{props.tips}</div>
