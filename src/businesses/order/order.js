@@ -101,8 +101,7 @@ class Order extends React.Component {
         this.hotFoods = null
         this.discountFoods = null
 
-        this.pickHotSales = this.pickHotSales.bind(this)
-        this.pickDiscounted = this.pickDiscounted.bind(this)
+        this.pickFood = this.pickFood.bind(this)
         this.resizeAllFoodsHeight = this.resizeAllFoodsHeight.bind(this)
     }
 
@@ -129,16 +128,6 @@ class Order extends React.Component {
             })
     }
 
-    // mockFoodsData(foods){ //to mock large list
-    //     let extFoods = []
-    //     for(let i=0;i<20;i++){
-    //         extFoods[i] = {}
-    //         extFoods[i].foods = foods[i%3]
-    //         extFoods[i].id = i
-    //         extFoods[i].pickCount = 0
-    //     }
-    //     return extFoods
-    // }
 
     resizeAllFoodsHeight(){
         this.allfoods.style.height = (document.documentElement.clientHeight - this.allfoods.offsetTop - cartHeight) + 'px'
@@ -201,34 +190,23 @@ class Order extends React.Component {
         }
     }
 
-    pickHotSales(n, id){
-
-        const index = this.state.data.get('hotsales').findIndex(i => i.id == id)
-
-        this.setState(
-            ({data})=>({
-                data:data.update('hotsales', v=>v.update(index, vv=>({
-                    ...vv, pickCount:vv.pickCount?((vv.pickCount+n)<0?0:vv.pickCount+n):(n<0?0:n)
-                }))
-                )
-            })
-        )
-    }
-    
-    pickDiscounted(n, index){
-        this.setState(
-            ({data})=>({
-                data:data.update('discounted', v=>v.update(index, vv=>({
-                    ...vv, pickCount:(vv.pickCount+n)<0?0:vv.pickCount+n
+    pickFood(type){
+        return (n, id)=>{
+            console.log(id)
+            const index = this.state.data.get(type).findIndex(i => i.id == id)
+            this.setState(
+                ({data})=>({
+                    data:data.update(type, v=>v.update(index, vv=>({
+                        ...vv, pickCount:vv.pickCount?((vv.pickCount+n)<0?0:vv.pickCount+n):(n<0?0:n)
                     }))
-                )
-            })
-        )
+                    )
+                })
+            )
+        }
     }
-    
 
     render() {
-        console.log(this.state.data)
+        // console.log(this.state.data)
 
         return (<StyledOrder>
 
@@ -242,7 +220,7 @@ class Order extends React.Component {
                     <div>热卖区</div>
                     {
                         this.state.data.get('hotsales')?this.state.data.get('hotsales').map((item)=><div key={item.id}>
-                                <Food {...item} onPick={this.pickHotSales}/>
+                                <Food {...item} onPick={this.pickFood('hotsales')}/>
                             </div>):null
                     }
                 </div>
@@ -250,7 +228,7 @@ class Order extends React.Component {
                     <div>打折区</div>
                     {
                         this.state.data.get('discounted')?this.state.data.get('discounted').map((item)=><div key={item.id}>
-                                <Food {...item} onPick={this.pickDiscounted}/>
+                                <Food {...item} onPick={this.pickFood('discounted')}/>
                             </div>):null
                     }
                 </div>
