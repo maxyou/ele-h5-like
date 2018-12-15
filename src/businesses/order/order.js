@@ -10,10 +10,15 @@ var http = axios.create()
 
 var mock = new MockAdapter(http)
 mock.onGet('/shopping/v2/menu').reply(200,{
-    users:[
-        {id:1, name:'JS'},
-        {id:2, name:'Java'},
-        {id:3, name:'Go'},
+    hotsales:[
+        {id:1, name:'JS', imgurl:'resources/img/coffee.jpg'},
+        {id:2, name:'Java', imgurl:'resources/img/chicken.jpg'},
+        {id:3, name:'Go', imgurl:'resources/img/mdl.jpg'},
+    ],
+    discounted:[
+        {id:1, name:'python', imgurl:'resources/img/ricenoodle.jpg'},
+        {id:2, name:'c', imgurl:'resources/img/coffee.jpg'},
+        {id:3, name:'c++', imgurl:'resources/img/chicken.jpg'},
     ]
 
 })
@@ -98,33 +103,33 @@ class Order extends React.Component {
             .then(res=>{
                 if(res.status===200){
                     console.log('axios 200')
-                    console.log(JSON.stringify(res.data))
+                    // console.log(JSON.stringify(res.data))
 
-                    // this.setState(
-                    //     ({data})=>({
-                    //         data:data.merge(
-                    //             Map({
-                    //                 hotsales:List(this.mockFoodsData(res.data[0].foods)),
-                    //                 discounted:List(this.mockFoodsData(res.data[1].foods))
-                    //             })
-                    //         )
-                    //     })
-                    // )
+                    this.setState(
+                        ({data})=>({
+                            data:data.merge(
+                                Map({
+                                    hotsales:List(res.data.hotsales),
+                                    discounted:List(res.data.discounted)
+                                })
+                            )
+                        })
+                    )
                 }
                 // console.log(res)
             })
     }
 
-    mockFoodsData(foods){ //to mock large list
-        let extFoods = []
-        for(let i=0;i<20;i++){
-            extFoods[i] = {}
-            extFoods[i].foods = foods[i%3]
-            extFoods[i].id = i
-            extFoods[i].pickCount = 0
-        }
-        return extFoods
-    }
+    // mockFoodsData(foods){ //to mock large list
+    //     let extFoods = []
+    //     for(let i=0;i<20;i++){
+    //         extFoods[i] = {}
+    //         extFoods[i].foods = foods[i%3]
+    //         extFoods[i].id = i
+    //         extFoods[i].pickCount = 0
+    //     }
+    //     return extFoods
+    // }
 
     resizeAllFoodsHeight(){
         this.allfoods.style.height = (document.documentElement.clientHeight - this.allfoods.offsetTop - cartHeight) + 'px'
@@ -235,7 +240,7 @@ class Order extends React.Component {
     
 
     render() {
-        // console.log(this.state.data)
+        console.log(this.state.data)
 
         return (<StyledOrder>
 

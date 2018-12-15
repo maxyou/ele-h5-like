@@ -59,14 +59,14 @@ const StyledFoodPicker = styled.div`
 `
 export default (props) => {
 
-    // console.log(props)
+    console.log(props)
 
     return (
         <StyledFood>
-            <Icon url={props.foods.image_path}></Icon>
+            <Icon url={props.imgurl}></Icon>
             <StyledFoodInfo>
                 <div className="name">黄焖鸡-{props.id}</div>
-                <div className="tips">{props.foods.tips}</div>
+                <div className="tips">{props.tips}</div>
                 <div className="price">￥20元起</div>
                 <div className="welcome">欢迎光临</div>
                 

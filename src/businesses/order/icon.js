@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-
 const StyledImg = styled.img`
     width: 70px;
     height: 70px;
@@ -11,9 +10,17 @@ const StyledImg = styled.img`
     /* background-color:blue; */
 `
 export default function IconCategory(props) {
-    // console.log(props)
+    console.log('---props---')
+    console.log(props)
 
-
-    // return (<StyledDiv style={{ backgroundImage: 'url(' + props.url + ')' }}></StyledDiv>)    
-    return (<StyledImg src={'/img/'+props.url} alt="avatar"/>)
+//1 works
+    const u = 'img/mdl.jpg'
+    return (<img src={require('resources/' + u)} alt="avatar"/>)
+//2 not works
+    // const u = '/img/mdl.jpg'
+    // return (<img src={require('resources' + u)} alt="avatar"/>)
+//3 not works
+    // const uu = 'resources/'
+    // const u = 'img/mdl.jpg'
+    // return (<img src={require(uu + u)} alt="avatar"/>)
 }
