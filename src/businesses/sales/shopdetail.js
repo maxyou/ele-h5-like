@@ -43,7 +43,6 @@ class ShopDetail extends React.Component {
                 <div>{this.state.name}</div>
                 <div>{this.state.address}</div>
                 <div>{this.state.category}</div>
-                <div>{this.state.category}</div>
             </StyledShopDetail>
             )
         }else{
