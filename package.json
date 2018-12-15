@@ -33,6 +33,7 @@
   ],
   "proxy": "https://elm.cangdu.org",
   "devDependencies": {
+    "axios-mock-adapter": "^1.15.0",
     "redux-devtools-extension": "^2.13.5"
   }
 }

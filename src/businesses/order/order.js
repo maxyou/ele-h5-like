@@ -4,7 +4,19 @@ import styled from 'styled-components'
 import Food from 'businesses/order/food'
 import Cart from 'businesses/order/cart'
 import {Map, List} from 'immutable'
+import MockAdapter from 'axios-mock-adapter'
 
+var http = axios.create()
+
+var mock = new MockAdapter(http)
+mock.onGet('/shopping/v2/menu').reply(200,{
+    users:[
+        {id:1, name:'JS'},
+        {id:2, name:'Java'},
+        {id:3, name:'Go'},
+    ]
+
+})
 
 const deactive = '#dddddd'
 const active = '#aaaaaa'
@@ -81,22 +93,23 @@ class Order extends React.Component {
     }
 
     httpUpdate(){
-        axios.get('/shopping/v2/menu?restaurant_id='+this.props.match.params.id)
+        // axios.get('/shopping/v2/menu?restaurant_id='+this.props.match.params.id)
+        http.get('/shopping/v2/menu')
             .then(res=>{
                 if(res.status===200){
                     console.log('axios 200')
-                    // console.log(JSON.stringify(res.data))
+                    console.log(JSON.stringify(res.data))
 
-                    this.setState(
-                        ({data})=>({
-                            data:data.merge(
-                                Map({
-                                    hotsales:List(this.mockFoodsData(res.data[0].foods)),
-                                    discounted:List(this.mockFoodsData(res.data[1].foods))
-                                })
-                            )
-                        })
-                    )
+                    // this.setState(
+                    //     ({data})=>({
+                    //         data:data.merge(
+                    //             Map({
+                    //                 hotsales:List(this.mockFoodsData(res.data[0].foods)),
+                    //                 discounted:List(this.mockFoodsData(res.data[1].foods))
+                    //             })
+                    //         )
+                    //     })
+                    // )
                 }
                 // console.log(res)
             })
