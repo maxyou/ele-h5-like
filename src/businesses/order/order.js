@@ -6,6 +6,7 @@ import {Map, List} from 'immutable'
 
 const deactive = '#dddddd'
 const active = '#aaaaaa'
+const cartHeight = 80 //px
 const StyledOrder = styled.div`
 
 `
@@ -45,7 +46,7 @@ const StyledFoods = styled.div`
     overflow:scroll;
 `
 const StyledOrderCart = styled.div`
-    height: 80px;
+    height: ${cartHeight+'px'};
     width: 100%;
     background-color:green;
     float:left;
@@ -110,7 +111,7 @@ class Order extends React.Component {
     }
 
     resizeAllFoodsHeight(){
-        this.allfoods.style.height = (document.documentElement.clientHeight - this.allfoods.offsetTop - 100) + 'px'
+        this.allfoods.style.height = (document.documentElement.clientHeight - this.allfoods.offsetTop - cartHeight) + 'px'
     }
     componentDidMount() {
 
