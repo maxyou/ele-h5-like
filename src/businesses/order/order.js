@@ -2,11 +2,14 @@ import React from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import Food from 'businesses/order/food'
+import Cart from 'businesses/order/cart'
 import {Map, List} from 'immutable'
+
 
 const deactive = '#dddddd'
 const active = '#aaaaaa'
 const cartHeight = 80 //px
+
 const StyledOrder = styled.div`
 
 `
@@ -248,7 +251,7 @@ class Order extends React.Component {
             </StyledFoods>
 
             <StyledOrderCart>
-                cart
+                <Cart></Cart>                
             </StyledOrderCart>
         </StyledOrder>)
 

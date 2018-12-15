@@ -76,7 +76,7 @@ const StyledDivInfo = styled.div`
 `
 export default (props) => {
 
-    console.log(props)
+    // console.log(props)
 
     return (
         <StyledDiv>
