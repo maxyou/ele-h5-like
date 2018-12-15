@@ -44,6 +44,12 @@ const StyledFoods = styled.div`
     flex-direction:column;
     overflow:scroll;
 `
+const StyledOrderCart = styled.div`
+    height: 80px;
+    width: 100%;
+    background-color:green;
+    float:left;
+`
 
 class Order extends React.Component {
 
@@ -104,7 +110,7 @@ class Order extends React.Component {
     }
 
     resizeAllFoodsHeight(){
-        this.allfoods.style.height = (document.documentElement.clientHeight - this.allfoods.offsetTop) + 'px'
+        this.allfoods.style.height = (document.documentElement.clientHeight - this.allfoods.offsetTop - 100) + 'px'
     }
     componentDidMount() {
 
@@ -240,7 +246,9 @@ class Order extends React.Component {
                 </div>
             </StyledFoods>
 
-
+            <StyledOrderCart>
+                cart
+            </StyledOrderCart>
         </StyledOrder>)
 
 

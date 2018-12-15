@@ -5,7 +5,7 @@ import ShopDetail from 'businesses/sales/shopdetail'
 
 const StyledDivHeader = styled.div`
 
-    height: 250px;
+    height: 100px;
     background-color: #9090f0;
 
 `
