@@ -11,14 +11,23 @@ var http = axios.create()
 var mock = new MockAdapter(http)
 mock.onGet('/shopping/v2/menu').reply(200,{
     hotsales:[
-        {id:1, name:'JS', imgindex:'coffee'},
-        {id:2, name:'Java', imgindex:'chicken'},
-        {id:3, name:'Go', imgindex:'mdl'},
+        {id:1, name:'咖啡', price: 1, imgindex:'coffee'},
+        {id:2, name:'黄闷鸡', price: 2, imgindex:'chicken'},
+        {id:3, name:'麦当劳', price: 3, imgindex:'mdl'},
+        {id:4, name:'黄闷鸡', price: 4, imgindex:'chicken'},
+        {id:5, name:'咖啡', price: 5, imgindex:'coffee'},
+        {id:6, name:'过桥米线', price: 5, imgindex:'ricenoodle'},
+        {id:7, name:'麦当劳', price: 6, imgindex:'mdl'},
     ],
     discounted:[
-        {id:1, name:'python', imgindex:'ricenoodle'},
-        {id:2, name:'c', imgindex:'coffee'},
-        {id:3, name:'c++', imgindex:'chicken'},
+        {id:1, name:'过桥米线', price: 1, imgindex:'ricenoodle'},
+        {id:2, name:'麦当劳', price: 2, imgindex:'mdl'},
+        {id:3, name:'过桥米线', price: 3, imgindex:'ricenoodle'},
+        {id:4, name:'黄闷鸡', price: 4, imgindex:'chicken'},
+        {id:5, name:'咖啡', price: 5, imgindex:'coffee'},
+        {id:6, name:'麦当劳', price: 6, imgindex:'mdl'},
+        {id:7, name:'咖啡', price: 7, imgindex:'coffee'},
+        {id:8, name:'黄闷鸡', price: 8, imgindex:'chicken'},
     ]
 
 })

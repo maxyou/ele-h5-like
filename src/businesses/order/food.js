@@ -65,9 +65,8 @@ export default (props) => {
         <StyledFood>
             <FoodPic imgindex={props.imgindex}></FoodPic>
             <StyledFoodInfo>
-                <div className="name">黄焖鸡-{props.id}</div>
-                <div className="tips">{props.tips}</div>
-                <div className="price">￥20元起</div>
+                <div className="name">{props.name}</div>
+                <div className="price">￥{props.price}元起</div>
                 <div className="welcome">欢迎光临</div>
                 
             </StyledFoodInfo>
