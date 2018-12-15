@@ -201,36 +201,15 @@ class Order extends React.Component {
         }
     }
 
-    pickHotSales(n, index){
-        // var stateCopy = Object.assign({}, this.state)
-        // stateCopy.hotsales[index].pickCount += n
-        // if(stateCopy.hotsales[index].pickCount < 0){
-        //     stateCopy.hotsales[index].pickCount = 0
-        // }
-        // this.setState(stateCopy)
-        console.log(n)
-        console.log(index)
+    pickHotSales(n, id){
+
+        const index = this.state.data.get('hotsales').findIndex(i => i.id == id)
+
         this.setState(
             ({data})=>({
-                // data:data.updateIn(['hotsales', index], v=>{
-                //         // v.pickCount += n
-                //         console.log(v)
-                //         let nv = Object.assign({}, v)
-                //         nv.pickCount += n
-                //         console.log(nv.pickCount)
-                //         return nv
-
-                // })
                 data:data.update('hotsales', v=>v.update(index, vv=>({
-                    ...vv, pickCount:(vv.pickCount+n)<0?0:vv.pickCount+n
+                    ...vv, pickCount:vv.pickCount?((vv.pickCount+n)<0?0:vv.pickCount+n):(n<0?0:n)
                 }))
-                    // {
-                    //     v.update(index, vv=>{
-                    //         vv.pickCount += n
-                    //         return vv
-                    //     })
-                    //     return v
-                    // }
                 )
             })
         )

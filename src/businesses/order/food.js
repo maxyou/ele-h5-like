@@ -59,7 +59,7 @@ const StyledFoodPicker = styled.div`
 `
 export default (props) => {
 
-    console.log(props)
+    // console.log(props)
 
     return (
         <StyledFood>
@@ -72,7 +72,7 @@ export default (props) => {
             </StyledFoodInfo>
             <StyledFoodPicker>
                 <img className="minus" src={iconMinus} alt='' onClick={()=>props.onPick(-1, props.id)} />
-                <div>{props.pickCount}</div>
+                <div>{props.pickCount?props.pickCount:0}</div>
                 <img className="plus" src={iconPlus} alt='' onClick={()=>props.onPick(1, props.id)} />
             </StyledFoodPicker>
         </StyledFood>
