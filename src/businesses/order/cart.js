@@ -33,18 +33,23 @@ const StyledBasket = styled.div`
     position: relative;
     width: 50px;
     height: 50px;
-    /* background-color:#91497f; */
+    /* margin-left:10px;
+    margin-right:10px; */
+    padding-left:10px;
+    padding-right:10px;
+    border-radius:20px;
+    background-color:#81f98f;
 
     img{
         position: absolute;
         width: 30px;
         height: 30px;
-        left:10px;
+        left:15px;
         bottom: 10px;
     }
     .num{
         position: absolute;
-        right:0px;
+        left:40px;
         top:3px;
         background-color:#dd0000;
         padding-left:5px;
