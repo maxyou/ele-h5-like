@@ -34,7 +34,7 @@ mock.onGet('/shopping/v2/menu').reply(200,{
 
 const deactive = '#dddddd'
 const active = '#aaaaaa'
-const cartHeight = 80 //px
+const cartHeight = 60 //px
 
 const StyledOrder = styled.div`
 
@@ -74,10 +74,19 @@ const StyledFoods = styled.div`
     flex-direction:column;
     overflow:scroll;
 `
-const StyledOrderCart = styled.div`
-    height: ${cartHeight+'px'};
+const StyledOrderList = styled.div`
     width: 100%;
-    background-color:green;
+    height: 150px;
+    background-color:yellow;
+    opacity:0.8;
+`
+const StyledOrderCart = styled.div`
+    position:absolute;
+    left:0px;
+    bottom: 0px;
+    /* height: ${cartHeight+'px'}; */
+    width: 100%;
+    /* background-color:green; */
     float:left;
 `
 
@@ -185,7 +194,7 @@ class Order extends React.Component {
 
     pickFood(type){
         return (n, id)=>{
-            console.log(id)
+            // console.log(id)
             const index = this.state.data.get(type).findIndex(i => i.id == id)
             this.setState(
                 ({data})=>({
@@ -228,7 +237,8 @@ class Order extends React.Component {
             </StyledFoods>
 
             <StyledOrderCart>
-                <Cart {...this.state.data.toJS()}></Cart>                
+                {/* <StyledOrderList>table</StyledOrderList> */}
+                <Cart {...this.state.data.toJS()} cartHeight={cartHeight}></Cart>                
             </StyledOrderCart>
         </StyledOrder>)
 
