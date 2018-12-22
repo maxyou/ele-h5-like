@@ -3,6 +3,7 @@ import axios from 'axios'
 import styled from 'styled-components'
 import Food from 'businesses/order/food'
 import Cart from 'businesses/order/cart'
+import OrderList from 'businesses/order/orderlist'
 import {Map, List} from 'immutable'
 import MockAdapter from 'axios-mock-adapter'
 
@@ -248,7 +249,9 @@ class Order extends React.Component {
             </StyledFoods>
 
             <StyledOrderCart>
-                <StyledOrderList show={this.state.cartListShow?'block':'none'}>table</StyledOrderList>
+                <StyledOrderList show={this.state.cartListShow?'block':'none'}>
+                    <OrderList {...this.state.data.toJS()}/>
+                </StyledOrderList>
                 <Cart {...this.state.data.toJS()} cartHeight={cartHeight} clickBasket={this.clickBasket}></Cart>                
             </StyledOrderCart>
         </StyledOrder>)
