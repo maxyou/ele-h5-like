@@ -14,10 +14,10 @@ const StyledDiv = styled.div`
     justify-content:space-around;
     align-items: center;
 
-    img{
+    /* img{
         width: 30px;
         height: 30px;
-    }
+    } */
     /* .num{
         background-color:#11c97f;
     }
@@ -29,6 +29,47 @@ const StyledDiv = styled.div`
     } */
 
 `
+const StyledBasket = styled.div`
+    position: relative;
+    width: 50px;
+    height: 50px;
+    /* background-color:#91497f; */
+
+    img{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        left:10px;
+        bottom: 10px;
+    }
+    .num{
+        position: absolute;
+        right:0px;
+        top:3px;
+        background-color:#dd0000;
+        padding-left:5px;
+        padding-right:5px;
+        border-radius:8px;
+    }
+    .digit{
+        color:#dddddd;
+        font-size:0.8rem;
+    }
+
+`
+function Basket(props){
+    return (
+        <StyledBasket>
+
+            <img className="cart" src={cartSvg} alt=''  />
+            <div className="num">
+                <div className="digit">
+                    {props.num}
+                </div>
+            </div>
+        </StyledBasket>
+    )
+}
 
 class Cart extends React.Component {
 
@@ -63,10 +104,11 @@ class Cart extends React.Component {
         })
 
         return <StyledDiv {...this.props}>
-                <img className="cart" src={cartSvg} alt=''  />
+                {/* <img className="cart" src={cartSvg} alt=''  />
                 <div className="num">
                     总计{num}件商品
-                </div>
+                </div> */}
+                <Basket num={num}></Basket>
                 <div className="price">
                     总价{price}元
                 </div>
