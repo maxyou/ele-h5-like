@@ -80,11 +80,13 @@ const StyledFoods = styled.div`
     overflow:scroll;
 `
 const StyledOrderList = styled.div`
+    padding:3px;
+    border: 1px solid blue;
     display:${props=>props.show};
     width: 100%;
     height: 150px;
     background-color:yellow;
-    opacity:0.8;
+    opacity:0.99;
 `
 const StyledOrderCart = styled.div`
     position:absolute;
@@ -250,7 +252,10 @@ class Order extends React.Component {
 
             <StyledOrderCart>
                 <StyledOrderList show={this.state.cartListShow?'block':'none'}>
-                    <OrderList {...this.state.data.toJS()}/>
+                    <OrderList {...this.state.data.toJS()}
+                        hotSalesPick={this.pickFood('hotsales')}
+                        discountedPick={this.pickFood('discounted')}
+                    />
                 </StyledOrderList>
                 <Cart {...this.state.data.toJS()} cartHeight={cartHeight} clickBasket={this.clickBasket}></Cart>                
             </StyledOrderCart>

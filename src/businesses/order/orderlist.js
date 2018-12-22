@@ -6,8 +6,8 @@ import iconPlus from 'businesses/order/iconfont/plus-circle.svg'
 
 const StyledFood = styled.div`
     background-color: #f080c0;
-    width: 100%;
-    height: 80px;
+    width: 99%;
+    height: 25px;
     display: flex;
     align-items:stretch;
     margin-bottom:1px;
@@ -16,14 +16,15 @@ const StyledFoodInfo = styled.div`
     background-color: #c0d0c0;
     flex: 1 0 auto;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: flex-start;
-    padding: 10px;
+    padding: 3px;
 
     .name{
-        font-size:14pt;
+        font-size:10pt;
         color:#3333ff;
+        padding-left:5px;
     }
     .tips{
         font-size:8pt;
@@ -31,6 +32,7 @@ const StyledFoodInfo = styled.div`
     .price{
         font-size:8pt;
         color:#3333ff;
+        padding-right:10px;
     }
     .welcome{
         font-size:8pt;
@@ -39,7 +41,7 @@ const StyledFoodInfo = styled.div`
 `
 const StyledFoodPicker = styled.div`
     background-color: #f0c040;
-    width: 50px;
+    width: 80px;
     height: 100%;
     display:flex;
     justify-content:center;
@@ -65,7 +67,7 @@ function getItem(onPick) {
                 {/* <FoodPic imgindex={item.imgindex}></FoodPic> */}
                 <StyledFoodInfo>
                     <div className="name">{item.name}</div>
-                    <div className="price">￥{item.price}元</div>
+                    <div className="price">￥{item.price * item.pickCount}元</div>
                     
                 </StyledFoodInfo>
                 <StyledFoodPicker>
@@ -83,8 +85,8 @@ export default (props) => {
     console.log(props)
 
     return (<div>
-        {props.hotsales.map(getItem(props.onPick))}
-        {props.discounted.map(getItem(props.onPick))}
+        {props.hotsales.map(getItem(props.hotSalesPick))}
+        {props.discounted.map(getItem(props.discountedPick))}
     </div>
     )
   }
