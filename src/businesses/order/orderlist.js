@@ -81,8 +81,8 @@ function getItem(onPick) {
 }
 export default (props) => {
 
-    console.log('----order list----')
-    console.log(props)
+    // console.log('----order list----')
+    // console.log(props)
 
     return (<div>
         {props.hotsales.map(getItem(props.hotSalesPick))}

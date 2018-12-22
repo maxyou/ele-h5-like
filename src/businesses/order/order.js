@@ -83,6 +83,7 @@ const StyledOrderList = styled.div`
     padding:3px;
     border: 1px solid blue;
     display:${props=>props.show};
+    overflow:scroll;
     width: 100%;
     height: 150px;
     background-color:yellow;
@@ -121,6 +122,7 @@ class Order extends React.Component {
 
         this.pickFood = this.pickFood.bind(this)
         this.clickBasket = this.clickBasket.bind(this)
+        this.clearAll = this.clearAll.bind(this)
         this.resizeAllFoodsHeight = this.resizeAllFoodsHeight.bind(this)
     }
 
@@ -216,13 +218,29 @@ class Order extends React.Component {
             )
         }
     }
+    clearAll(){
+        this.setState(
+            ({data})=>{
+                // data:data.update('hotsales', v=>v.update(vv=>({...vv, pickCount:0})))
 
+                let temp = data.toJS()
+                temp.hotsales = temp.hotsales.map((item)=>({...item, pickCount:0}))
+                temp.discounted = temp.discounted.map((item)=>({...item, pickCount:0}))
+
+                return {data: Map({
+                        hotsales:List(temp.hotsales),
+                        discounted:List(temp.discounted)
+                    })
+                }
+            }
+        )
+    }
     clickBasket(){
         console.log('click basket')
         this.setState({cartListShow:this.state.cartListShow?false:true})
     }
     render() {
-        // console.log(this.state.data)
+        console.log(this.state.data)
 
         return (<StyledOrder>
 
@@ -252,6 +270,7 @@ class Order extends React.Component {
 
             <StyledOrderCart>
                 <StyledOrderList show={this.state.cartListShow?'block':'none'}>
+                    <button onClick={this.clearAll}>清除所有</button>
                     <OrderList {...this.state.data.toJS()}
                         hotSalesPick={this.pickFood('hotsales')}
                         discountedPick={this.pickFood('discounted')}
