@@ -58,8 +58,9 @@ const StyledBasket = styled.div`
 
 `
 function Basket(props){
+    // console.log(props)
     return (
-        <StyledBasket>
+        <StyledBasket onClick={props.clickBasket}>
 
             <img className="cart" src={cartSvg} alt=''  />
             <div className="num">
@@ -108,7 +109,7 @@ class Cart extends React.Component {
                 <div className="num">
                     总计{num}件商品
                 </div> */}
-                <Basket num={num}></Basket>
+                <Basket num={num} clickBasket={this.props.clickBasket}></Basket>
                 <div className="price">
                     总价{price}元
                 </div>

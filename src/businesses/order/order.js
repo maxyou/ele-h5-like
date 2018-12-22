@@ -79,6 +79,7 @@ const StyledFoods = styled.div`
     overflow:scroll;
 `
 const StyledOrderList = styled.div`
+    display:${props=>props.show};
     width: 100%;
     height: 150px;
     background-color:yellow;
@@ -103,7 +104,8 @@ class Order extends React.Component {
                             current:0,
                             hotsales: List(),
                             discounted: List()
-                        })}
+                        }),
+                    cartListShow: false}
         
         this.id_buttons = 'buttons'
         this.id_allfoods = 'allfoods'
@@ -115,6 +117,7 @@ class Order extends React.Component {
         this.discountFoods = null
 
         this.pickFood = this.pickFood.bind(this)
+        this.clickBasket = this.clickBasket.bind(this)
         this.resizeAllFoodsHeight = this.resizeAllFoodsHeight.bind(this)
     }
 
@@ -211,6 +214,10 @@ class Order extends React.Component {
         }
     }
 
+    clickBasket(){
+        console.log('click basket')
+        this.setState({cartListShow:this.state.cartListShow?false:true})
+    }
     render() {
         // console.log(this.state.data)
 
@@ -241,8 +248,8 @@ class Order extends React.Component {
             </StyledFoods>
 
             <StyledOrderCart>
-                {/* <StyledOrderList>table</StyledOrderList> */}
-                <Cart {...this.state.data.toJS()} cartHeight={cartHeight}></Cart>                
+                <StyledOrderList show={this.state.cartListShow?'block':'none'}>table</StyledOrderList>
+                <Cart {...this.state.data.toJS()} cartHeight={cartHeight} clickBasket={this.clickBasket}></Cart>                
             </StyledOrderCart>
         </StyledOrder>)
 
