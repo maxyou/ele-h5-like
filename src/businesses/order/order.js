@@ -82,10 +82,13 @@ const StyledFoods = styled.div`
 const StyledOrderList = styled.div`
     padding:3px;
     border: 1px solid blue;
-    display:${props=>props.show};
+    /* display:${props=>props.show}; */
+    /* transition: display 2s; */
     overflow:scroll;
     width: 100%;
-    height: 150px;
+    /* height: 150px; */
+    height: ${props=>props.show};
+    transition: height 0.5s;
     background-color:yellow;
     opacity:0.99;
 `
@@ -131,7 +134,7 @@ class Order extends React.Component {
         http.get('/shopping/v2/menu')
             .then(res=>{
                 if(res.status===200){
-                    console.log('axios 200')
+                    // console.log('axios 200')
                     // console.log(JSON.stringify(res.data))
 
                     this.setState(
@@ -240,7 +243,7 @@ class Order extends React.Component {
         this.setState({cartListShow:this.state.cartListShow?false:true})
     }
     render() {
-        console.log(this.state.data)
+        // console.log(this.state.data)
 
         return (<StyledOrder>
 
@@ -269,7 +272,7 @@ class Order extends React.Component {
             </StyledFoods>
 
             <StyledOrderCart>
-                <StyledOrderList show={this.state.cartListShow?'block':'none'}>
+                <StyledOrderList show={this.state.cartListShow?'150px':'0px'}>
                     <button onClick={this.clearAll}>清除所有</button>
                     <OrderList {...this.state.data.toJS()}
                         hotSalesPick={this.pickFood('hotsales')}
