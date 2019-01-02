@@ -1,9 +1,9 @@
 import React from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
-import Food from 'businesses/order/food'
-import Cart from 'businesses/order/cart'
-import OrderList from 'businesses/order/orderlist'
+import Food from '@/businesses/order/food'
+import Cart from '@/businesses/order/cart'
+import OrderList from '@/businesses/order/orderlist'
 import {Map, List} from 'immutable'
 import MockAdapter from 'axios-mock-adapter'
 

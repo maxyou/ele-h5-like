@@ -4,7 +4,7 @@ import axios from 'axios'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import SlideView from 'businesses/category/slideview'
+import SlideView from '@/businesses/category/slideview'
 
 const StyledDiv = styled.div`    
     width: 100vw;

@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import Shop from 'businesses/shops/shop'
+import Shop from '@/businesses/shops/shop'
 
 // const StyledDiv = styled.div`    
 // `

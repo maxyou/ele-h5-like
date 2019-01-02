@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import IconCategory from 'businesses/category/icon'
+import IconCategory from '@/businesses/category/icon'
 
 const slideHeight = '200px'
 const itemHeight = '90px'

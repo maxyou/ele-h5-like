@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import FoodPic from 'businesses/order/foodpic'
-import iconMinus from 'businesses/order/iconfont/minus-circle.svg'
-import iconPlus from 'businesses/order/iconfont/plus-circle.svg'
+import FoodPic from '@/businesses/order/foodpic'
+import iconMinus from '@/businesses/order/iconfont/minus-circle.svg'
+import iconPlus from '@/businesses/order/iconfont/plus-circle.svg'
 
 const StyledFood = styled.div`
     background-color: #f080c0;

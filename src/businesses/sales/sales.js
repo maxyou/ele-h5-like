@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import Order from 'businesses/order/order'
-import ShopDetail from 'businesses/sales/shopdetail'
+import Order from '@/businesses/order/order'
+import ShopDetail from '@/businesses/sales/shopdetail'
 
 const StyledDivHeader = styled.div`
 

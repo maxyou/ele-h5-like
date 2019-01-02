@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import cartSvg from 'businesses/order/iconfont/cart.svg'
+import cartSvg from '@/businesses/order/iconfont/cart.svg'
 
 const StyledDiv = styled.div`    
 

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 // import chicken from 'resources/img/chicken.jpg'
 // import mdl from 'resources/img/mdl.jpg'
 // import ricenoodle from 'resources/img/ricenoodle.jpg'
-import imgs from 'resources/img/index'
+import imgs from '@/resources/img/index'
 
 const StyledImg = styled.img`
     width: 70px;

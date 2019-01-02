@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-import iconHome from 'components/footer/iconfont/home.svg'
-import iconFind from 'components/footer/iconfont/find.svg'
-import iconOrder from 'components/footer/iconfont/order.svg'
-import iconMy from 'components/footer/iconfont/my.svg'
+import iconHome from '@/components/footer/iconfont/home.svg'
+import iconFind from '@/components/footer/iconfont/find.svg'
+import iconOrder from '@/components/footer/iconfont/order.svg'
+import iconMy from '@/components/footer/iconfont/my.svg'
 
 const FlexBottom = styled.div`
     display: flex;

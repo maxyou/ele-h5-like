@@ -6,11 +6,11 @@ import reducers from './reducers';
 import { Switch, HashRouter, Route, Redirect } from 'react-router-dom'
 import thunkMiddleware from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import Home from 'pages/home'
-import Find from 'pages/find'
-import Order from 'pages/order'
-import My from 'pages/my'
-import Seles from 'businesses/sales/sales'
+import Home from '@/pages/home'
+import Find from '@/pages/find'
+import Order from '@/pages/order'
+import My from '@/pages/my'
+import Seles from '@/businesses/sales/sales'
 
 const store = createStore(
   reducers,
