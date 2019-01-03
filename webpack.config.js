@@ -79,7 +79,8 @@ module.exports = {
                     `/`
                     ],
             target: 'https://elm.cangdu.org',
-            secure: false
+            secure: false,
+            changeOrigin: true
         }]
     }
 };
