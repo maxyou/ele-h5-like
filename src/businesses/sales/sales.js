@@ -3,6 +3,11 @@ import styled from 'styled-components'
 import Order from '@/businesses/order/order'
 import ShopDetail from '@/businesses/sales/shopdetail'
 
+const StyledDivSales = styled.div`
+    // overflow-x: hidden;
+    // overflow-y: auto;
+`
+
 const StyledDivHeader = styled.div`
 
     height: 100px;
@@ -15,11 +20,11 @@ export default (props) => {
     // console.log(props)
 
     return (
-        <div>
+        <StyledDivSales>
             <StyledDivHeader>
                 <ShopDetail {...props}></ShopDetail>
             </StyledDivHeader>
             <Order {...props}></Order>
-        </div>
+        </StyledDivSales>
     )
   }

@@ -72,20 +72,22 @@ const StyledButtons = styled.div`
 `
 const StyledFoods = styled.div`
     background-color: #f0f0c0;
-    width: 79%;
+    width: 80%;
     height: 100vh;
     float:left;
     display: flex;
     flex-direction:column;
-    overflow:scroll;
+    overflow-y:scroll;
+    overflow-x:hidden;
 `
 const StyledOrderList = styled.div`
-    padding:3px;
-    border: 1px solid blue;
+    // padding:3px;
+    // border: 1px solid blue;
     /* display:${props=>props.show}; */
     /* transition: display 2s; */
-    overflow:scroll;
-    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    // width: 100%;
     /* height: 150px; */
     height: ${props=>props.show};
     transition: height 0.5s;
@@ -100,6 +102,7 @@ const StyledOrderCart = styled.div`
     width: 100%;
     /* background-color:green; */
     float:left;
+    // opacity:0.7;
 `
 
 class Order extends React.Component {
