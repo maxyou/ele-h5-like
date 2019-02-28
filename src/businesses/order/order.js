@@ -157,7 +157,8 @@ class Order extends React.Component {
 
 
     resizeAllFoodsHeight(){
-        this.allfoods.style.height = (document.documentElement.clientHeight - this.allfoods.offsetTop - cartHeight) + 'px'
+        this.allfoods.style.height = (document.documentElement.clientHeight
+             - this.allfoods.offsetTop - cartHeight) + 'px'
     }
     componentDidMount() {
 

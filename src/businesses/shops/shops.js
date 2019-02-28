@@ -9,9 +9,7 @@ class Shops extends React.Component {
 
     constructor(props){
         super(props)
-
-        // this.state = null
-        
+        // this.state = null        
     }
 
     httpUpdate(){
