@@ -5,7 +5,7 @@ import iconMinus from '@/businesses/order/iconfont/minus-circle.svg'
 import iconPlus from '@/businesses/order/iconfont/plus-circle.svg'
 
 const StyledFood = styled.div`
-    background-color: #f080c0;
+    background-color: #c0d0c0;
     width: 100%;
     height: 80px;
     display: flex;
