@@ -8,7 +8,7 @@ import thunkMiddleware from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import Home from '@/pages/home'
 import Find from '@/pages/find'
-import Order from '@/pages/order'
+import Favorite from '@/pages/favorite'
 import My from '@/pages/my'
 import Seles from '@/businesses/sales/sales'
 
@@ -31,7 +31,7 @@ class App extends Component {
                 <Route exact path="/" render={() => <Redirect to="/home" />} />
                 <Route path="/home" component={Home} />
                 <Route path="/find" component={Find} />
-                <Route path="/order" component={Order} />
+                <Route path="/favorite" component={Favorite} />
                 <Route path="/my" component={My} />
                 <Route path="/seles/:id" component={Seles} />
               </Switch>

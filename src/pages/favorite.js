@@ -1,10 +1,10 @@
 import React from 'react'
 import Footer from '@/components/footer/footer'
 
-export default function Order() {
+export default function Favorite() {
     return (
         <div>
-            <h2>Order</h2>
+            <h2>Favorite</h2>
             <Footer />
         </div>
     );
