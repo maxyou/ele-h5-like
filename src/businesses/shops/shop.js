@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import ReactStars from "react-rating-stars-component"
 import Avatar from '@/businesses/shops/avatar'
+import calc from '@/tool/calc'
 import { Link} from 'react-router-dom'
 
 const StyledDiv = styled.div`
@@ -87,6 +89,13 @@ export default (props) => {
                 <StyledDivInfo>
                     <div className="line1">
                         <div className="line1-1">{props.name}</div>
+                        <ReactStars
+                            count={5}
+                            value={calc.getRandomInt(1,5)}
+                            edit={false}
+                            size={24}
+                            color2={"#ffd700"}
+                        />
                         {/* <div className="line1-2">{props.supports[0].name}</div> */}
                     </div>
                     <div className="line2">

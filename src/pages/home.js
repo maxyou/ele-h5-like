@@ -6,7 +6,7 @@ import styled from 'styled-components'
 const StyledDiv = styled.div`
     
     overflow-x: hidden;
-    background-color:gray;
+    background-color:#eeeeee;
 `
 export default function Home() {
     return (
