@@ -3,33 +3,22 @@ import styled from 'styled-components'
 import ReactStars from "react-rating-stars-component"
 import Avatar from '@/businesses/shops/avatar'
 import calc from '@/tool/calc'
-import { Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
+const StyledLink = styled(Link)`
+    text-decoration: none;
+`
 const StyledDiv = styled.div`
-    /* background-color: #f0f0f0; */
-    width: 100vw;
-    /* width:100%; */
-    height: 20vw;
-    /* border: 1px dotted green; */
-    margin-bottom: 2px;
-    /* padding:10px; */
-    /* margin: 0px; */
-    overflow: hidden;
+    display:flex;
 `
 const StyledDivAvatar = styled.div`
-    float: left;
     width: 15vw;
     height: 15vw;
-    margin:1vw;
-    /* background-color: #671234; */
-    clear: left;
+    margin:10px;
 `
 const StyledDivInfo = styled.div`
-    float: left;
     width: 80vw;
-    height: 30vw;
-    margin:1vw;
-    /* background-color: #126734; */
+    height: 210px;
 
     .line1{
         display:flex;
@@ -37,24 +26,33 @@ const StyledDivInfo = styled.div`
         .line1-1{
             font-size:200%;
             margin:3px;
+            color:black;
         }
         .line1-2{
+            display:flex;
+            align-items:center;
             font-size:80%;
             color: grey;
             margin: 5px;
+            margin-right:15px;
+            padding:5px;
+            background-color:gold;
+            border-radius:5px;
         }
     }
     .line2{
         display:flex;
-        justify-content:space-between;
+        justify-content:flex-start;
+        align-items:stretch;
         .line2-1{
-            font-size:100%;
-            color: #0000ff;
-            margin:3px;
+            display:flex;
+            align-items:center;
         }
         .line2-2{
-            font-size:80%;
-            margin:3px;
+            display:flex;
+            align-items:center;
+            font-size:120%;
+            margin-left:15px;
             color: #8888cc;
         }
     }
@@ -62,18 +60,49 @@ const StyledDivInfo = styled.div`
         display:flex;
         justify-content:space-between;
         .line3-1{
-            font-size:80%;
+            font-size:120%;
             color: grey;
             margin:3px;
         }
         .line3-2{
-            font-size:80%;
+            font-size:100%;
             color: grey;
             margin:3px;
+            margin-right:15px;
+        }
+        .line3-3{
+            margin-left:5px;
+            margin-right:5px;
         }
     }
     .line4{
-        text-align: left;
+        display:flex;
+        color: grey;
+        .line4-1{
+            margin-right:5px;
+            padding: 3px;
+            background-color:orange;
+            border-radius:2px;
+            color: white;
+        }
+    }
+    .line5{
+        display:flex;
+        color: grey;
+        margin-top:5px;
+        .line5-1{
+            margin-right:5px;
+            padding: 3px;
+            background-color:lightgreen;
+            border-radius:2px;
+            color: white;
+        }
+    }
+    .line-interval{
+        height:1px;
+        margin-top:15px;
+        margin-bottom:15px;
+        background-color:#dddddd;
     }
 `
 export default (props) => {
@@ -81,36 +110,37 @@ export default (props) => {
     // console.log(props)
 
     return (
-        <StyledDiv>
-            <Link to={`/seles/${props.id}`}>
+        <StyledLink to={`/seles/${props.id}`}>
+            <StyledDiv>
                 <StyledDivAvatar>
-                    <Avatar url={props.image_url}/>
+                    <Avatar url={props.image_url} />
                 </StyledDivAvatar>
                 <StyledDivInfo>
                     <div className="line1">
                         <div className="line1-1">{props.name}</div>
-                        <ReactStars
-                            count={5}
-                            value={calc.getRandomInt(1,5)}
-                            edit={false}
-                            size={24}
-                            color2={"#ffd700"}
-                        />
-                        {/* <div className="line1-2">{props.supports[0].name}</div> */}
+                        <div className="line1-2">金牌保证</div>
                     </div>
                     <div className="line2">
-                        <div className="line2-1">{props.category}</div>
-                        {/* <div className="line2-2">{props.supports[1].description}</div> */}
+                        <div className="line2-1">
+                            <ReactStars count={5} value={calc.getRandomInt(1, 5)} edit={false} size={24} color2={"#ffd700"} />
+                        </div>
+                        <div className="line2-2">月售{calc.getRandomInt(1, 100)}单</div>
                     </div>
                     <div className="line3">
-                        <div className="line3-1">tel:{props.phone}</div>
-                        {/* <div className="line3-2">{props.piecewise_agent_fee.tips}</div> */}
+                        <div className="line3-1"><span>￥{calc.getRandomInt(1, 100)}起配送</span><span className="line3-3">|</span><span>免费配送</span></div>
+                        <div className="line3-2"><span>距离{calc.getRandomInt(1, 5)}公里</span><span className="line3-3">|</span><span>大约{calc.getRandomInt(1, 50)}分钟</span></div>
                     </div>
+                    <div className="line-interval"></div>
                     <div className="line4">
-                        {props.address}
+                        <div className="line4-1"><span>减</span></div>
+                        <div className="line4-2"><span>满{calc.getRandomInt(50, 100)}元减{calc.getRandomInt(10, 20)}元</span></div>
+                    </div>
+                    <div className="line5">
+                        <div className="line5-1"><span>配</span></div>
+                        <div className="line5-2"><span>商品金额满{calc.getRandomInt(70, 100)}元，配送费减{calc.getRandomInt(5, 10)}元</span></div>
                     </div>
                 </StyledDivInfo>
-            </Link>
-        </StyledDiv>
+            </StyledDiv>
+        </StyledLink>
     )
-  }
+}
