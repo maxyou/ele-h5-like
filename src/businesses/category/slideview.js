@@ -40,7 +40,7 @@ const StyledDivItem = styled.div`
     }
 `
 export default ({slided}) => {
-
+    // console.log(slided)
     return (
         <StyledDivSlide>
             {slided.map(

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import imgs from '@/resources/img/index'
 
 export default function IconCategory(props) {
     // console.log(props)
@@ -13,5 +13,5 @@ export default function IconCategory(props) {
     `
 
     // return (<StyledDiv style={{ backgroundImage: 'url(' + props.url + ')' }}></StyledDiv>)    
-    return (<StyledImg src={'https://fuss10.elemecdn.com/'+props.url} alt="avatar"/>)
+    return (<StyledImg src={imgs[props.url]} alt="avatar"/>)
 }
