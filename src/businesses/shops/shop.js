@@ -10,6 +10,8 @@ const StyledLink = styled(Link)`
 `
 const StyledDiv = styled.div`
     display:flex;
+    margin-top:10px;
+    background-color:white;
 `
 const StyledDivAvatar = styled.div`
     width: 15vw;

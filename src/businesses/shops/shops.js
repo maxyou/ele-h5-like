@@ -66,8 +66,7 @@ class Shops extends React.Component {
                 <div>
                     {v.map(
                         (item)=>(<div key={item.id}>
-                            <Shop {...item}/>
-                            <hr/>                          
+                            <Shop {...item}/>                            
                             </div>)
                     )}
                 </div>
