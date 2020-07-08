@@ -17,6 +17,9 @@ const StyledDivAvatar = styled.div`
     width: 15vw;
     height: 15vw;
     margin:10px;
+    padding:1px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
 `
 const StyledDivInfo = styled.div`
     width: 80vw;

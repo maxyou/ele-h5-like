@@ -4,8 +4,7 @@ import imgs from '@/resources/img/index'
 
 const StyledImg = styled.img`
     width: 100%;
-    height: 100%;
-    border-radius: 25%;    
+    height: 100%;    
 `
 
 export default function Avatar({url}) {
