@@ -48,7 +48,7 @@ class Category extends React.Component {
             .then(res=>{
                 if(res.status===200){
                     // console.log('axios 200')
-                    console.log(res)
+                    // console.log(res)
                     let a = []
                     for(var i = 0; i < res.data.length; i++){
                         let aa = parseInt(i/6)
@@ -57,7 +57,7 @@ class Category extends React.Component {
                         }
                         a[aa].push(res.data[i])
                     }
-                    console.log(a)
+                    // console.log(a)
                     this.setState({category:a})
                 }
                 // console.log(res)

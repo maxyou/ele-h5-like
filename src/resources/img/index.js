@@ -21,4 +21,11 @@ export default{
     category_yu: require('./category_yu.png'),
     category_zhun: require('./category_zhun.png'),
 
+    shops_1: require('./shops_1.png'),
+    shops_2: require('./shops_2.png'),
+    shops_3: require('./shops_3.png'),
+    shops_4: require('./shops_4.png'),
+    shops_5: require('./shops_5.png'),
+    shops_6: require('./shops_6.png'),
+
 }
