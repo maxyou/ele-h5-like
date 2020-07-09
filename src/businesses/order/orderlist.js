@@ -13,7 +13,7 @@ const StyledFood = styled.div`
     margin-bottom:1px;
 `
 const StyledFoodInfo = styled.div`
-    background-color: #c0d0c0;
+    background-color: white;
     flex: 1 0 auto;
     display: flex;
     flex-direction: row;
@@ -40,7 +40,7 @@ const StyledFoodInfo = styled.div`
     }
 `
 const StyledFoodPicker = styled.div`
-    background-color: #f0c040;
+    background-color: white;
     width: 80px;
     height: 100%;
     display:flex;

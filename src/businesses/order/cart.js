@@ -4,7 +4,7 @@ import cartSvg from '@/businesses/order/iconfont/cart.svg'
 
 const StyledDiv = styled.div`    
     min-width:512px;
-    background-color:#71399f;
+    background-color:#f0f8ff;
     /* height: 100%; */
     /* height: 80px; */
     height: ${props=>props.cartHeight}px;

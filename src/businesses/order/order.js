@@ -72,7 +72,7 @@ const StyledButtons = styled.div`
     }
 `
 const StyledFoods = styled.div`
-    background-color: #dddddd;    
+    background-color: white;    
     width: 80%;
     height: 100vh;
     float:left;
@@ -82,10 +82,14 @@ const StyledFoods = styled.div`
     overflow-x:hidden;
 
     .foods-area-hot{
-        background-color:yellow;
+        background-color:lightblue;
+        padding: 5px;
+        margin:2px;
     }
     .foods-area-discount{
-        background-color:yellow;
+        background-color:lightblue;
+        padding: 5px;
+        margin:2px;
     }
 `
 const StyledOrderList = styled.div`
@@ -99,7 +103,7 @@ const StyledOrderList = styled.div`
     /* height: 150px; */
     height: ${props=>props.show};
     transition: height 0.5s;
-    background-color:lightblue;
+    background-color:#81f98f;
     opacity:0.99;
 `
 const StyledOrderCart = styled.div`    
