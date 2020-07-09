@@ -6,10 +6,12 @@ import ShopDetail from '@/businesses/sales/shopdetail'
 const StyledDivSales = styled.div`
     // overflow-x: hidden;
     // overflow-y: auto;
+    min-width:512px;
 `
 
 const StyledDivHeader = styled.div`
-    height: 300px;
+    
+    height: 215px;
 `
 
 export default (props) => {

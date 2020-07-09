@@ -42,7 +42,7 @@ const active = '#aaaaaa'
 const cartHeight = 60 //px
 
 const StyledOrder = styled.div`
-
+    
 `
 const StyledButtons = styled.div`
     width: 20%;
@@ -94,7 +94,7 @@ const StyledOrderList = styled.div`
     background-color:#71c99f;
     opacity:0.99;
 `
-const StyledOrderCart = styled.div`
+const StyledOrderCart = styled.div`    
     position:absolute;
     left:0px;
     bottom: 0px;

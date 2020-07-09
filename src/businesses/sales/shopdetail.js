@@ -9,13 +9,13 @@ import ReactStars from "react-rating-stars-component"
 const StyledDivBack = styled.div`
     position: absolute;
 `
-const StyledDiv = styled.div`    
+const StyledDiv = styled.div`
+    min-width: 512px;
     display:flex;
     flex-direction:column;
-    align-items:stretch;
+    align-items:center;
 
     .line-1{
-        margin-left:80px;
         display:flex;        
         background-color:red;
         .line-1-1{
@@ -23,6 +23,7 @@ const StyledDiv = styled.div`
             margin-left:50px;
             display:flex;
             flex-direction:column;
+            flex: 0 0 auto;
             .line-1-1-1{
                 background-color:blue;
                 font-size:200%;
@@ -103,6 +104,7 @@ const StyledDiv = styled.div`
     }
 `
 const StyledDivAvatar = styled.div`    
+    flex: 0 0 auto;
     width: 100px;
     height: 100px;
     margin:10px;
@@ -111,64 +113,6 @@ const StyledDivAvatar = styled.div`
     border-radius: 5px;
 `
 
-const StyledDivInfo = styled.div`
-    height: 180px;
-    padding-left:20px;
-    padding-right:20px;    
-    background-color:yellow;
-    
-    .line3{
-        display:flex;
-        justify-content:space-between;
-        .line3-1{
-            font-size:120%;
-            color: grey;
-            margin:3px;
-        }
-        .line3-2{
-            font-size:100%;
-            color: grey;
-            margin:3px;
-            margin-right:15px;
-        }
-        .line3-3{
-            margin-left:5px;
-            margin-right:5px;
-        }
-    }
-    .line45{
-        display:flex;
-        .line4{
-            display:flex;
-            color: grey;
-            .line4-1{
-                margin-right:5px;
-                padding: 3px;
-                background-color:orange;
-                border-radius:2px;
-                color: white;
-            }
-        }
-        .line5{
-            display:flex;
-            color: grey;
-            margin-top:5px;
-            .line5-1{
-                margin-right:5px;
-                padding: 3px;
-                background-color:lightgreen;
-                border-radius:2px;
-                color: white;
-            }
-        }
-    }
-    .line-interval{
-        height:1px;
-        margin-top:15px;
-        margin-bottom:15px;
-        background-color:#dddddd;
-    }
-`
 class ShopDetail extends React.Component {
 
     constructor(props) {

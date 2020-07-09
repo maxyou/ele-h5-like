@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import cartSvg from '@/businesses/order/iconfont/cart.svg'
 
 const StyledDiv = styled.div`    
-    background-color:#71c99f;
+    min-width:512px;
+    background-color:#71399f;
     /* height: 100%; */
     /* height: 80px; */
     height: ${props=>props.cartHeight}px;
