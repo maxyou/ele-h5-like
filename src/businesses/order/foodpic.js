@@ -9,10 +9,9 @@ import imgs from '@/resources/img/index'
 const StyledImg = styled.img`
     width: 70px;
     height: 70px;
-    margin:2px;
+    // margin:2px;
     padding:3px;
     /* border-radius: 25%; */
-    /* background-color:blue; */
 `
 export default function IconCategory({imgindex}) {
 

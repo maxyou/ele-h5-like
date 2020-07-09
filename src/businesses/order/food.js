@@ -5,15 +5,15 @@ import iconMinus from '@/businesses/order/iconfont/minus-circle.svg'
 import iconPlus from '@/businesses/order/iconfont/plus-circle.svg'
 
 const StyledFood = styled.div`
-    background-color: #c0d0c0;
     width: 100%;
     height: 80px;
     display: flex;
     align-items:stretch;
     margin-bottom:1px;
+    background-color: white;
 `
 const StyledFoodInfo = styled.div`
-    background-color: #c0d0c0;
+    // background-color: white;
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
@@ -38,7 +38,7 @@ const StyledFoodInfo = styled.div`
     }
 `
 const StyledFoodPicker = styled.div`
-    background-color: #f0c040;
+    // background-color: white;
     width: 100px;
     height: 100%;
     display:flex;

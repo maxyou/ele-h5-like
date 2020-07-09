@@ -42,11 +42,12 @@ const active = '#aaaaaa'
 const cartHeight = 60 //px
 
 const StyledOrder = styled.div`
-    
+    // padding-top:20px;
+    // margin-top:20px;
 `
 const StyledButtons = styled.div`
     width: 20%;
-    float:left;
+    float:left;    
 
     div{
         width:80%;
@@ -71,7 +72,7 @@ const StyledButtons = styled.div`
     }
 `
 const StyledFoods = styled.div`
-    background-color: #f0f0c0;
+    background-color: #dddddd;    
     width: 80%;
     height: 100vh;
     float:left;
@@ -79,6 +80,13 @@ const StyledFoods = styled.div`
     flex-direction:column;
     overflow-y:scroll;
     overflow-x:hidden;
+
+    .foods-area-hot{
+        background-color:yellow;
+    }
+    .foods-area-discount{
+        background-color:yellow;
+    }
 `
 const StyledOrderList = styled.div`
     // padding:3px;
@@ -91,7 +99,7 @@ const StyledOrderList = styled.div`
     /* height: 150px; */
     height: ${props=>props.show};
     transition: height 0.5s;
-    background-color:#71c99f;
+    background-color:lightblue;
     opacity:0.99;
 `
 const StyledOrderCart = styled.div`    
@@ -258,7 +266,7 @@ class Order extends React.Component {
 
             <StyledFoods id={this.id_allfoods}>
                 <div id={this.id_hot}>
-                    <div>热卖区</div>
+                    <div className="foods-area-hot">热卖区</div>
                     {
                         this.state.data.get('hotsales')?this.state.data.get('hotsales').map((item)=><div key={item.id}>
                                 <Food {...item} onPick={this.pickFood('hotsales')}/>
@@ -266,7 +274,7 @@ class Order extends React.Component {
                     }
                 </div>
                 <div id={this.id_discount}>
-                    <div>打折区</div>
+                    <div className="foods-area-discount">打折区</div>
                     {
                         this.state.data.get('discounted')?this.state.data.get('discounted').map((item)=><div key={item.id}>
                                 <Food {...item} onPick={this.pickFood('discounted')}/>
