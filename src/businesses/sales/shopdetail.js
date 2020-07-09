@@ -3,11 +3,30 @@ import styled from 'styled-components'
 import axios from 'axios'
 import Avatar from '@/businesses/shops/avatar'
 import ShopsData from '@/resources/shops'
+import IconBack from '@/resources/icon/back.svg'
 import calc from '@/tool/calc'
 import ReactStars from "react-rating-stars-component"
 
 const StyledDivBack = styled.div`
+    display: flex;
+    justify-content:center;
+    align-items:center;
     position: absolute;
+    width: 60px;
+    height: 30px;
+    margin-top: 15px;
+    margin-left: 15px;
+    padding: 2px;
+    background-color:lightgreen;
+    border-radius:2px;
+    color: black;
+    .back-img{
+        display: flex;
+        justify-content:center;
+        align-items:center;    
+        width: 20px;
+        height: 20px;    
+    }
 `
 const StyledDiv = styled.div`
     min-width: 512px;
@@ -152,12 +171,14 @@ class ShopDetail extends React.Component {
     }
 
     render() {
-
         // console.log(this.state)
         if (this.state) {
             return (
                 <div>
-                    <StyledDivBack>B</StyledDivBack>
+                    <StyledDivBack onClick={()=>this.props.history.goBack()}>
+                        <img className="back-img" src={IconBack} />
+                        <span>返回</span>
+                    </StyledDivBack>
                     {/* <StyledShopDetail>
                         <StyledDivAvatar>
                             <Avatar url={this.state.image_url} />
