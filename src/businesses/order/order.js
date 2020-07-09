@@ -33,6 +33,9 @@ mock.onGet('/shopping/v2/menu').reply(200,{
         {id:6, name:'麦当劳', price: 6, imgindex:'mdl'},
         {id:7, name:'咖啡', price: 7, imgindex:'coffee'},
         {id:8, name:'黄闷鸡', price: 8, imgindex:'chicken'},
+        {id:9, name:'咖啡', price: 9, imgindex:'coffee'},
+        {id:10, name:'过桥米线', price: 10, imgindex:'ricenoodle'},
+        {id:11, name:'麦当劳', price: 11, imgindex:'mdl'},
     ]
 
 })
@@ -66,14 +69,14 @@ const StyledButtons = styled.div`
         display:flex;
         justify-content:center;
         align-items:center;
-        border: ${props=>props.current===0?'2px dotted tomato':'0px dotted tomato'};
+        border: ${props=>props.current===0?'3px dotted tomato':'0px dotted tomato'};
     }
     .discount{
         background-color: lightblue;
         display:flex;
         justify-content:center;
         align-items:center;
-        border: ${props=>props.current===1?'2px dotted lightblue':'0px dotted lightblue'};
+        border: ${props=>props.current===1?'3px dotted lightblue':'0px dotted lightblue'};
     }
 `
 

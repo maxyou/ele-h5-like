@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import iconHome from '@/components/footer/iconfont/home.svg'
 import iconFind from '@/components/footer/iconfont/find.svg'
-import iconOrder from '@/components/footer/iconfont/order.svg'
+import iconFavorite from '@/components/footer/iconfont/favorite.svg'
 import iconMy from '@/components/footer/iconfont/my.svg'
 
 const FlexBottom = styled.div`
@@ -22,7 +22,7 @@ const FlexButton = styled.div`
 
     width: 25%;
     /* height: 100%; */
-    background-color: #63b383;
+    background-color: #87cefa;
 
     a{
         width: 100%;
@@ -36,7 +36,8 @@ const FlexButton = styled.div`
         
     }
     .selected{
-        background-color: #93d3a3;
+        background-color: #d7eefa;
+        // background-color: #f3d3a3;
     }
     img{
         width:25px;
@@ -63,9 +64,9 @@ export default () => {
                     </NavLink>
                 </FlexButton>
                 <FlexButton>
-                   <NavLink to='/order' activeClassName="selected">
-                        <img src={iconOrder} alt='' />
-                        <div>Order</div>
+                   <NavLink to='/favorite' activeClassName="selected">
+                        <img src={iconFavorite} alt='' />
+                        <div>Favorite</div>
                    </NavLink>
                 </FlexButton>
                 <FlexButton>
