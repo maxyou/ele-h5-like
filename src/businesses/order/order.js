@@ -46,8 +46,13 @@ const StyledOrder = styled.div`
     // margin-top:20px;
 `
 const StyledButtons = styled.div`
+    display:flex;
+    flex-direction:column;
+    align-items:center;
     width: 20%;
-    float:left;    
+    float:left;  
+    padding-top: 10px;  
+    //background-color: brown;
 
     div{
         width:80%;
@@ -56,23 +61,25 @@ const StyledButtons = styled.div`
         padding:3px;
     }
     .hot{
-        /* background-color: ${props=>props.current===0?active:deactive}; */
-        background-color: #dddddd;
+        //background-color: ${props=>props.current===0?active:deactive}; 
+        background-color: tomato;
         display:flex;
         justify-content:center;
         align-items:center;
-        border: ${props=>props.current===0?'1px dotted red':'0px dotted red'};
+        border: ${props=>props.current===0?'2px dotted tomato':'0px dotted tomato'};
     }
     .discount{
-        background-color: #dddddd;
+        background-color: lightblue;
         display:flex;
         justify-content:center;
         align-items:center;
-        border: ${props=>props.current===1?'1px dotted red':'0px dotted red'};
+        border: ${props=>props.current===1?'2px dotted lightblue':'0px dotted lightblue'};
     }
 `
+
 const StyledFoods = styled.div`
-    background-color: white;    
+    background-color: white; 
+    padding-top: 10px;   
     width: 80%;
     height: 100vh;
     float:left;
@@ -82,7 +89,7 @@ const StyledFoods = styled.div`
     overflow-x:hidden;
 
     .foods-area-hot{
-        background-color:lightblue;
+        background-color:tomato;
         padding: 5px;
         margin:2px;
     }
@@ -92,6 +99,7 @@ const StyledFoods = styled.div`
         margin:2px;
     }
 `
+
 const StyledOrderList = styled.div`
     // padding:3px;
     // border: 1px solid blue;
