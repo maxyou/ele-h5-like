@@ -9,7 +9,7 @@ const StyledDivSales = styled.div`
 `
 
 const StyledDivHeader = styled.div`
-    height: 230px;
+    height: 300px;
 `
 
 export default (props) => {
