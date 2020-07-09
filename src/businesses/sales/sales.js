@@ -9,10 +9,7 @@ const StyledDivSales = styled.div`
 `
 
 const StyledDivHeader = styled.div`
-
-    height: 100px;
-    background-color: #9090f0;
-
+    height: 230px;
 `
 
 export default (props) => {
