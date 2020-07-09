@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
+import ShopsData from '@/resources/shops'
+
 const StyledShopDetail = styled.div`
     display:flex;
     flex-direction: column;
-
 `
 class ShopDetail extends React.Component {
 
@@ -17,17 +18,30 @@ class ShopDetail extends React.Component {
 
 
     httpUpdate(){
-        axios.get('/shopping/restaurant/'+this.props.match.params.id)
-            .then(res=>{
-                if(res.status===200){
-                    console.log('axios 200 shop detail')
-                    // console.log(JSON.stringify(res))
-                    // console.log(res)
+        // axios.get('/shopping/restaurant/'+this.props.match.params.id)
+        //     .then(res=>{
+        //         if(res.status===200){
+        //             console.log('axios 200 shop detail')
+        //             // console.log(JSON.stringify(res))
+        //             // console.log(res)
 
-                    this.setState({...res.data})
-                }
-                // console.log(res)
-            })
+        //             this.setState({...res.data})
+        //         }
+        //         // console.log(res)
+        //     })
+
+        // ShopsData.find()
+        console.log(ShopsData)
+        var item
+        ShopsData.forEach(v => {
+            if(v.id == this.props.match.params.id){
+                console.log('find item')
+                item = v
+            }
+        });
+        if(item != null){
+            this.setState({...item})
+        }
     }
 
     componentDidMount() {
