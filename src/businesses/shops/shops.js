@@ -46,8 +46,8 @@ class Shops extends React.Component {
         })
             .then(res=>{
                 if(res.status===200){
-                    console.log('axios 200')
-                    console.log(res)
+                    // console.log('axios 200')
+                    // console.log(res)
                     this.setState(res.data)
                 }
                 // console.log(res)
@@ -66,7 +66,7 @@ class Shops extends React.Component {
                 <div>
                     {v.map(
                         (item)=>(<div key={item.id}>
-                            <Shop {...item}/>                            
+                            <Shop item={item}/>                            
                             </div>)
                     )}
                 </div>

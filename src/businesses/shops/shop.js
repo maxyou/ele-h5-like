@@ -110,19 +110,19 @@ const StyledDivInfo = styled.div`
         background-color:#dddddd;
     }
 `
-export default (props) => {
+export default ({item}) => {
 
-    // console.log(props)
+    // console.log(item)
 
     return (
-        <StyledLink to={`/seles/${props.id}`}>
+        <StyledLink to={`/seles/${item.id}`}>
             <StyledDiv>
                 <StyledDivAvatar>
-                    <Avatar url={props.image_url} />
+                    <Avatar url={item.image_url} />
                 </StyledDivAvatar>
                 <StyledDivInfo>
                     <div className="line1">
-                        <div className="line1-1">{props.name}</div>
+                        <div className="line1-1">{item.name}</div>
                         <div className="line1-2">金牌保证</div>
                     </div>
                     <div className="line2">
