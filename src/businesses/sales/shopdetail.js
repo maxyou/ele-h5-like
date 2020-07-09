@@ -14,18 +14,15 @@ const StyledDiv = styled.div`
     display:flex;
     flex-direction:column;
     align-items:center;
-
+    background-color:white;
     .line-1{
         display:flex;        
-        background-color:red;
         .line-1-1{
-            background-color:brown;
             margin-left:50px;
             display:flex;
             flex-direction:column;
             flex: 0 0 auto;
             .line-1-1-1{
-                background-color:blue;
                 font-size:200%;
                 margin:3px;
                 color:black;
@@ -60,12 +57,10 @@ const StyledDiv = styled.div`
         }
     }
     .line-2{
-        background-color:tomato;
         display:flex;
         flex-direction:column;
         align-items:center;
         .line-2-1{
-            background-color:lightblue;
             display:flex;
             font-size:120%;
             color: grey;
@@ -82,6 +77,7 @@ const StyledDiv = styled.div`
             flex-direction:column;
             .line-2-2-1{
                 display:flex;
+                padding-bottom: 5px;
                 .line-2-2-1-1{
                     margin-right:5px;
                     padding: 3px;
@@ -92,6 +88,7 @@ const StyledDiv = styled.div`
             }
             .line-2-2-2{
                 display:flex;
+                padding-bottom: 5px;
                 .line-2-2-2-1{
                     margin-right:5px;
                     padding: 3px;

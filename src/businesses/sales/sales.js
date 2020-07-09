@@ -7,11 +7,11 @@ const StyledDivSales = styled.div`
     // overflow-x: hidden;
     // overflow-y: auto;
     min-width:512px;
+    background-color:#dddddd;
 `
 
-const StyledDivHeader = styled.div`
-    
-    height: 215px;
+const StyledDivHeader = styled.div`    
+    height: 230px;
 `
 
 export default (props) => {
