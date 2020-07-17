@@ -1,7 +1,7 @@
 # ele h5 imitation
 
-> My second React.js work is ele h5 imitation. <br>
-> Sincere thanks to https://elm.cangdu.org which privde most of the server-side data & apis!
+My second React.js work is "ele-book-order" h5 page imitation. <br>
+Currently this project use mocked data, while the early version it used server side data & api from https://elm.cangdu.org. Sincere thanks to https://elm.cangdu.org !
 
 # run
 npm start
